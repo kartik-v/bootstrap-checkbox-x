@@ -1,4 +1,4 @@
-three-state-checkbox
+bootstrap-checkbox-x
 ====================
 
-Simple JQuery Plugin that allows three state checkboxes
+An extended checkbox plugin for bootstrap with three states and additional styles.
