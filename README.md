@@ -101,24 +101,24 @@ Alternatively, you can directly call the plugin options by setting data attribut
 The plugin supports these following options:
 
 ##### threeState
-_boolean_ whether to use three states for the checkbox. This will allow you to save `null` values, in addition to the built in `true` and `false` values.
+_boolean_, whether to use three states for the checkbox. This will allow you to save `null` values, in addition to the built in `true` and `false` values.
 Defaults to `true`. If set to `false`, it will allow only the default two values: `true` and `false`.
 
 ##### inline
-_boolean_ whether the checkboxes are to be styled in an inline-block with other elements placed before or after. Defaults to `true`. 
+_boolean_, whether the checkboxes are to be styled in an inline-block with other elements placed before or after. Defaults to `true`. 
 If set to `false`, checkboxes will be displayed as a block (like in checkbox lists).
 
 ##### iconChecked
-_string_ the html markup for the glyph / icon to be displayed when the checkbox is checked. Defaults to `<i class="glyphicon glyphicon-ok"></i>`.
+_string_, the html markup for the glyph / icon to be displayed when the checkbox is checked. Defaults to `<i class="glyphicon glyphicon-ok"></i>`.
 
 ##### iconUnchecked
-_string_ the html markup for the glyph / icon to be displayed when the checkbox is unchecked. Defaults to a blank character ` `.
+_string_, the html markup for the glyph / icon to be displayed when the checkbox is unchecked. Defaults to a blank character ` `.
 
 ##### iconNull
-_string_ the html markup for the glyph / icon to be displayed when the checkbox is null. Defaults to `<i class="glyphicon glyphicon-stop"></i>`.
+_string_, the html markup for the glyph / icon to be displayed when the checkbox is null. Defaults to `<i class="glyphicon glyphicon-stop"></i>`.
 
 #### size
-_string_ size of the checkbox control. Should be one of `xl`, `lg`, `md`, `sm`, or `xs`. Defaults to `md`.
+_string_, size of the checkbox control. Should be one of `xl`, `lg`, `md`, `sm`, or `xs`. Defaults to `md`.
 
 ### Plugin Events
 The plugin supports these events:
