@@ -21,8 +21,10 @@
     CheckboxX.prototype = {
         constructor: CheckboxX,
         init: function (options) {
-            var self = this, change = $.proxy(self.change, self);
-            self.options = options, css = self.options.inline ? 'cbx-container' : 'cbx-container cbx-block';
+            var self = this,
+                change = $.proxy(self.change, self),
+                css = self.options.inline ? 'cbx-container' : 'cbx-container cbx-block';
+            self.options = options;
             if (typeof self.$container == 'undefined') {
                 self.$container = $(document.createElement("div")).addClass(css).html(self.render());
                 self.$element.before(self.$container);
