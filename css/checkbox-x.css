@@ -7,6 +7,14 @@
  * For more JQuery/Bootstrap plugins and demos visit http://plugins.krajee.com
  * For more Yii related demos visit http://demos.krajee.com
  */
+.cbx-loading {
+    display: inline-block!important;
+    width: 25px;
+    font-size: 0.1;
+    color: #fff;
+    background: transparent url('../img/loading.gif') center center no-repeat;
+    border: none;
+}
 .cbx, .cbx-container {
     display: inline-block;
     cursor: default;

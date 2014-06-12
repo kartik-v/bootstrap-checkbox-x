@@ -30,6 +30,7 @@
         constructor: CheckboxX,
         init: function (options) {
             var self = this;
+            self.$element.addClass('cbx-loading');
             self.options = options, css = self.options.inline ? 'cbx-container' : 'cbx-container cbx-block';
             if (typeof self.$container == 'undefined') {
                 self.$container = $(document.createElement("div")).addClass(css).html(self.render());
@@ -41,6 +42,7 @@
                 self.$container.addClass(css).html(self.render());
             }
             self.$cbx = self.$container.find('.cbx')
+            self.$element.removeClass('cbx-loading');
         },
         change: function () {
             var self = this;
@@ -127,6 +129,8 @@
         iconNull: '<i class="glyphicon glyphicon-stop"></i>',
         size: 'md'
     };
+
+    $('input[data-toggle="checkbox-x"]').addClass('cbx-loading');
 
     $(document).ready(function () {
         $('input[data-toggle="checkbox-x"]').checkboxX();

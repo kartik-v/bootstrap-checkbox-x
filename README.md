@@ -157,7 +157,7 @@ $('#input-id').checkboxX('refresh', {size: 'xl'});
 ```
 
 #### reset
-Reset the checkbox control to the initial value. For example after a form reset.
+Reset the checkbox control.
 ```js
 $('#input-id').checkboxX('reset');
 ```
