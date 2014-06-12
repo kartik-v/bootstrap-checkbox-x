@@ -30,7 +30,6 @@
         constructor: CheckboxX,
         init: function (options) {
             var self = this;
-            self.$element.addClass('cbx-loading');
             self.options = options, css = self.options.inline ? 'cbx-container' : 'cbx-container cbx-block';
             if (typeof self.$container == 'undefined') {
                 self.$container = $(document.createElement("div")).addClass(css).html(self.render());
@@ -41,7 +40,7 @@
             else {
                 self.$container.addClass(css).html(self.render());
             }
-            self.$cbx = self.$container.find('.cbx')
+            self.$cbx = self.$container.find('.cbx');
             self.$element.removeClass('cbx-loading');
         },
         change: function () {
