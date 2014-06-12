@@ -6,7 +6,7 @@ The plugin uses Bootstrap markup and CSS 3 styling by default, but it can be ove
 
 ## Features  
 
-1. Enhances any HTML input with `data-toggle=checkbox-x` to an extended checkbox control. 
+1. Enhances any HTML input (preferrably text input) with `data-toggle=checkbox-x` to an extended checkbox control. 
 2. The plugin offers the following three states and values for the checkboxes:
    - `1` or `true`: Checkbox is checked.
    - `0` or `false`: Checkbox is unchecked.
@@ -101,7 +101,7 @@ Alternatively, you can directly call the plugin options by setting data attribut
 The plugin supports these following options:
 
 ##### threeState
-_boolean_ whether to use three states for the checkbox. This will allow you to save null values, in addition to the `true` and `false` values.
+_boolean_ whether to use three states for the checkbox. This will allow you to save `null` values, in addition to the built in `true` and `false` values.
 Defaults to `true`. If set to `false`, it will allow only the default two values: `true` and `false`.
 
 ##### inline
