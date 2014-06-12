@@ -1,0 +1,36 @@
+{
+    "name": "bootstrap-checkbox-x",
+    "version": "1.0.0",
+    "homepage": "https://github.com/kartik-v/bootstrap-checkbox-x",
+    "authors": [
+        "Kartik Visweswaran <kartikv2@gmail.com>"
+    ],
+    "description": "An extended checkbox plugin for bootstrap with three states and additional styles.",
+    "main": [
+        "./css/checkbox-x.min.css",
+        "./js/checkbox-x.min.js"
+    ],
+    "keywords": [
+        "bootstrap",
+        "checkbox",
+        "jquery",
+        "three",
+        "state",
+        "indeterminate",
+        "null"
+    ],
+    "dependencies": {
+        "jquery": ">= 1.9.0",
+        "bootstrap": ">= 3.0.0"
+    },
+    "license": "BSD-3",
+    "ignore": [
+        "**/.*",
+        "node_modules",
+        "composer.json",
+        "examples",
+        "bower_components",
+        "test",
+        "tests"
+    ]
+}
