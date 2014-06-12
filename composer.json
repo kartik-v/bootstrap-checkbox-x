@@ -1,8 +1,8 @@
 {
-    "name": "kartik-v/bootstrap-star-rating",
-    "description": "A simple yet powerful JQuery star rating plugin for Bootstrap.",
-    "keywords": ["bootstrap", "jquery", "star", "rating"],
-    "homepage": "https://github.com/kartik-v/bootstrap-star-rating",
+    "name": "kartik-v/bootstrap-checkbox-x",
+    "description": "An extended checkbox plugin for bootstrap with three states and additional styles.",
+    "keywords": ["bootstrap", "checkbox", "jquery", "three", "state", "indeterminate", "null"],
+    "homepage": "https://github.com/kartik-v/bootstrap-checkbox-x",
     "license": "BSD 3-Clause",
     "authors": [
         {
