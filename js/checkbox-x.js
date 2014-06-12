@@ -15,21 +15,13 @@
         self.disabled = self.$element.attr('disabled') || self.$element.attr('readonly');
         self.initialValue = self.$element.val();
         self.init(options);
-        var change = $.proxy(self.change, self);
-        self.$element.closest('form').on('reset', function (e) {
-            self.reset();
-        });
-        self.$cbx.on('click', change);
-        self.$cbx.on('keyup', function (e) {
-            e.which == 32 && self.change();
-        });
-        self.$element.on('click', change);
+
     }
 
     CheckboxX.prototype = {
         constructor: CheckboxX,
         init: function (options) {
-            var self = this;
+            var self = this, change = $.proxy(self.change, self);
             self.options = options, css = self.options.inline ? 'cbx-container' : 'cbx-container cbx-block';
             if (typeof self.$container == 'undefined') {
                 self.$container = $(document.createElement("div")).addClass(css).html(self.render());
@@ -38,10 +30,20 @@
                 self.$element.hide();
             }
             else {
+                self.$container.before(self.$element);
                 self.$container.addClass(css).html(self.render());
+                self.$container.append(self.$element);
             }
-            self.$cbx = self.$container.find('.cbx');
             self.$element.removeClass('cbx-loading');
+            self.$cbx = self.$container.find('.cbx');
+            self.$element.closest('form').on('reset', function (e) {
+                self.reset();
+            });
+            self.$cbx.on('click', change);
+            self.$cbx.on('keyup', function (e) {
+                e.which == 32 && self.change();
+            });
+            self.$element.on('click', change);
         },
         change: function () {
             var self = this;
@@ -65,7 +67,7 @@
         reset: function () {
             var self = this;
             self.$element.val(self.initialValue);
-            self.init(self.options);
+            self.refresh();
             self.$element.trigger('reset');
         },
         refresh: function (options) {
