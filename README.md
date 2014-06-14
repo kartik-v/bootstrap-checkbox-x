@@ -4,7 +4,7 @@ bootstrap-checkbox-x
 An extended checkbox plugin for Bootstrap built using JQuery, which allows three checkbox states and includes additional styles. 
 The plugin uses Bootstrap markup and CSS 3 styling by default, but it can be overridden with any other CSS markup.
 
-> NOTE: The checkbox control stores the values as integer format (and not boolean format) for checked and unchecked states.
+> NOTE: The checkbox plugin stores the values as integer format (and not boolean format) for checked and unchecked states.
 
 ## Features  
 
