@@ -1,6 +1,12 @@
+version 1.1.0
+=============
+**Date: 2014-10-10**
+
+1. (enh #2): Add `labelClickEvent` property for controlling triggering change event on label click.
+
 version 1.0.0
 =============
-Date: 2014-06-12
+**Date: 2014-06-12**
 
 Initial release. The following features are included in this release:
 
@@ -22,4 +28,3 @@ Initial release. The following features are included in this release:
 11. Ability to access methods and refresh the input dynamically via javascript at runtime.
 12. Disabled and readonly checkbox input support.
 13. Size of the entire plugin (JS and CSS) is less than 2KB when minified and gzipped. Its about 6KB when minified without gzipping (about 3KB for the JS and 3KB for the CSS).
-

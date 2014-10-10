@@ -1,6 +1,6 @@
 /*!
  * @copyright &copy; Kartik Visweswaran, Krajee.com, 2014
- * @version 1.0.0
+ * @version 1.1.0
  *
  * An extended checkbox plugin for bootstrap with three states and additional styles.
  *
@@ -15,14 +15,12 @@
         self.disabled = self.$element.attr('disabled') || self.$element.attr('readonly');
         self.initialValue = self.$element.val();
         self.init(options);
-
     }
 
     CheckboxX.prototype = {
         constructor: CheckboxX,
         init: function (options) {
             var self = this,
-                change = $.proxy(self.change, self),
                 css = options.inline ? 'cbx-container' : 'cbx-container cbx-block';
             self.options = options;
             if (typeof self.$container == 'undefined') {
@@ -41,29 +39,31 @@
             self.$element.closest('form').on('reset', function (e) {
                 self.reset();
             });
-            self.$cbx.on('click', change);
-            self.$cbx.on('keyup', function (e) {
+            self.$cbx.on('click', function(e) {
+                self.change()
+            });
+            self.$cbx.on('keyup', function(e) {
                 e.which == 32 && self.change();
             });
-            self.$element.on('click', change);
+            self.$element.on('click', function(e) {
+                self.change(options.labelClickEvent)
+            });
         },
         change: function () {
-            var self = this;
+            var self = this, flag = (arguments.length == 0) ? true : arguments[0];
             if (self.disabled) {
                 return;
             }
             var options = self.options, val = parseInt(self.$element.val()), newVal, threeState = options.threeState;
             if (val === 1) {
                 newVal = threeState ? null : 0;
-            }
-            else if (val === 0) {
-                newVal = 1;
-            }
-            else {
-                newVal = threeState ? 0 : 1;
+            } else {
+                newVal = (val === 0) ? 1 : (threeState ? 0 : 1);
             }
             self.$element.val(newVal);
-            self.$element.trigger('change');
+            if (flag) {
+                self.$element.trigger('change');
+            }
             self.$cbx.html(self.getIndicator());
         },
         reset: function () {
@@ -130,7 +130,8 @@
         iconChecked: '<i class="glyphicon glyphicon-ok"></i>',
         iconUnchecked: ' ',
         iconNull: '<i class="glyphicon glyphicon-stop"></i>',
-        size: 'md'
+        size: 'md',
+        labelClickEvent: true
     };
 
     $('input[data-toggle="checkbox-x"]').addClass('cbx-loading');

@@ -27,6 +27,8 @@ The plugin uses Bootstrap markup and CSS 3 styling by default, but it can be ove
 12. Disabled and readonly checkbox input support.
 13. Size of the entire plugin (JS and CSS) is less than 2KB when minified and gzipped. Its about 6KB when minified without gzipping (about 3KB for the JS and 3KB for the CSS).
 
+> NOTE: The latest version of the plugin v1.1.0 has been released. Refer the [CHANGE LOG](https://github.com/kartik-v/bootstrap-checkbox-x/blob/master/CHANGE.md) for details.
+
 ## Demo
 
 View the [plugin documentation](http://plugins.krajee.com/checkbox-x) and [plugin demos](http://plugins.krajee.com/checkbox-x/demo) at Krajee JQuery plugins. 
@@ -121,6 +123,9 @@ _string_, the html markup for the glyph / icon to be displayed when the checkbox
 
 #### size
 _string_, size of the checkbox control. Should be one of `xl`, `lg`, `md`, `sm`, or `xs`. Defaults to `md`.
+
+#### labelClickEvent
+_boolean_, whether to trigger `change` event on base input element, when the checkbox label is clicked. Defaults to `true`.
 
 ### Plugin Events
 The plugin supports these events:
