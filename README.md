@@ -125,7 +125,7 @@ _string_, the html markup for the glyph / icon to be displayed when the checkbox
 _string_, size of the checkbox control. Should be one of `xl`, `lg`, `md`, `sm`, or `xs`. Defaults to `md`.
 
 #### enclosedLabel
-_boolean_, whether to the checkbox input is enclosed inside a label. Defaults to `false`. Setting it to `true` is important if you have enclosed the base input inside a `label` tag.
+_boolean_, whether the checkbox input is enclosed inside a label. Defaults to `false`. Setting it to `true` is important if you have enclosed the base input inside a `label` tag.
 
 ### Plugin Events
 The plugin supports these events:
