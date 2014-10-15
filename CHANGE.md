@@ -1,3 +1,10 @@
+version 1.2.0
+=============
+**Date: 2014-10-15**
+
+1. Removed `labelClickEvent` property.
+2. (bug #3): Added `enclosedLabel` property for correct toggling of checkboxes enclosed inside labels.
+
 version 1.1.0
 =============
 **Date: 2014-10-10**

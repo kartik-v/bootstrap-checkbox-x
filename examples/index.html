@@ -61,7 +61,7 @@
         <label class="control-label" for="check-2g">Right Label</label>
         <span style="border-left: 1px solid #ddd; margin: 0 20px;"></span>
         <label class="control-label">Enclosing Label
-        <input id="check-3g" value="" data-toggle="checkbox-x" data-size="xl">
+        <input id="check-3g" value="" data-toggle="checkbox-x" data-size="xl" data-enclosed-label="true">
     </div>
     
     <hr>
@@ -95,4 +95,19 @@
             });
         </script>
     </div>   
+     <hr>
+    <div class="form-group">
+        <label> Click me <input id="test" type="checkbox"/> </label><br>
+        <script>
+            $(function() {
+                var $el = $('#test');
+                $el.checkboxX({'threeState': false, 'enclosedLabel':true});
+                $el.on('change', function(evt) {
+                    console.log("val:" + $el.val() + ", triggered by: " + evt.target.id);
+                });
+            });
+        </script>
+    </div>   
+     <hr>
 </div>
+
