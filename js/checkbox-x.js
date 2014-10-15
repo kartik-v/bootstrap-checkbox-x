@@ -52,7 +52,7 @@
             });
         },
         change: function () {
-            var self = this;
+            var self = this, $el = self.$element;
             if (self.disabled) {
                 return;
             }
@@ -62,10 +62,8 @@
             } else {
                 newVal = val === 1 ? 0 : 1;
             }
-            self.$element.val(newVal);
-            if (!options.enclosedLabel) {
-                self.$element.trigger('change');
-            }
+            $el.val(newVal);
+            self.$element.trigger('change');
             self.$cbx.html(self.getIndicator());
         },
         reset: function () {

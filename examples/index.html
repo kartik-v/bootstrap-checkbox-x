@@ -6,7 +6,7 @@
     <link href="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet">
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
     <link href="../css/checkbox-x.css" media="all" rel="stylesheet" type="text/css"/>
-    <script src="../js/checkbox-x.min.js" type="text/javascript"></script>
+    <script src="../js/checkbox-x.js" type="text/javascript"></script>
 <body>
 <div class="container">
 <h1>Bootstrap Checkbox X Example</h1>
@@ -97,17 +97,20 @@
     </div>   
      <hr>
     <div class="form-group">
-        <label> Click me <input id="test" type="checkbox"/> </label><br>
-        <script>
-            $(function() {
-                var $el = $('#test');
-                $el.checkboxX({'threeState': false, 'enclosedLabel':true});
-                $el.on('change', function(evt) {
-                    console.log("val:" + $el.val() + ", triggered by: " + evt.target.id);
-                });
-            });
-        </script>
-    </div>   
-     <hr>
+     
+     Checkbox: <label> Click me <input id="test" type="checkbox"/> </label>
+    <br>The new value is: <span id="output"></span>
+    <script>     
+         $(function() {
+        var $el = $('#test');
+        $el.checkboxX({'threeState': false, 'enclosedLabel':true});
+        $el.on('change', function(evt) {
+            $('#output').text($el.val());
+        });
+    });
+    </script>
+    </div>
 </div>
+
+
 
