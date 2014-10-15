@@ -63,7 +63,9 @@
                 newVal = val === 1 ? 0 : 1;
             }
             self.$element.val(newVal);
-            self.$element.trigger('change');
+            if (!options.enclosedLabel) {
+                self.$element.trigger('change');
+            }
             self.$cbx.html(self.getIndicator());
         },
         reset: function () {
