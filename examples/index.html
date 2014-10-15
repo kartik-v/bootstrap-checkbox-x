@@ -67,7 +67,7 @@
     <hr>
     <div class="form-group has-success">
         <label class="control-label" for="check-1h">Success</label>
-        <input id="check-1h" value="1" data-toggle="checkbox-x" data-size="xl">
+        <input id="check-1h" type="checkbox" value="1" data-toggle="checkbox-x" data-size="xl">
     </div>
     
     <hr>
@@ -87,25 +87,27 @@
         <input id="check-1i" value="1" data-toggle="checkbox-x" data-size="xl" data-inline="false">
         <input id="check-2i" value="0" data-toggle="checkbox-x" data-size="xl" data-inline="false">
         <input id="check-3i" value="" data-toggle="checkbox-x" data-size="xl" data-inline="false"><br>
-        <script>
-            $('#check-1i').on('change', function(e) {
+        <script>   
+            $('#check-1h').on('change', function(e) {
                 var $this = $(this);
-                $this.attr('disabled', 'disabled');
-                $this.checkboxX('refresh');
+                console.log("Fired Change and val = " + $this.val());
+                //$this.attr('disabled', 'disabled');
+                //$this.checkboxX('refresh');
             });
         </script>
     </div>   
      <hr>
     <div class="form-group">
      
-     Checkbox: <label> Click me <input id="test" type="checkbox"/> </label>
+     Checkbox: <label for="test"> Click me <input id="test" value="1"/> </label>
     <br>The new value is: <span id="output"></span>
     <script>     
          $(function() {
         var $el = $('#test');
-        $el.checkboxX({'threeState': false, 'enclosedLabel':true});
+        $el.checkboxX({'threeState': true, 'enclosedLabel':true});
         $el.on('change', function(evt) {
             $('#output').text($el.val());
+            console.log("Fired Change and val = " + $el.val());
         });
     });
     </script>

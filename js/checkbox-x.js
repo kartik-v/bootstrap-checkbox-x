@@ -20,23 +20,23 @@
     CheckboxX.prototype = {
         constructor: CheckboxX,
         init: function (options) {
-            var self = this,
+            var self = this, $el = self.$element,
                 css = options.inline ? 'cbx-container' : 'cbx-container cbx-block';
             self.options = options;
             if (typeof self.$container == 'undefined') {
                 self.$container = $(document.createElement("div")).addClass(css).html(self.render());
-                self.$element.before(self.$container);
-                self.$container.append(self.$element);
-                self.$element.hide();
+                $el.before(self.$container);
+                self.$container.append($el);
+                $el.hide();
             }
             else {
-                self.$container.before(self.$element);
+                self.$container.before($el);
                 self.$container.addClass(css).html(self.render());
-                self.$container.append(self.$element);
+                self.$container.append($el);
             }
-            self.$element.removeClass('cbx-loading');
+            $el.removeClass('cbx-loading');
             self.$cbx = self.$container.find('.cbx');
-            self.$element.closest('form').on('reset', function (e) {
+            $el.closest('form').on('reset', function (e) {
                 self.reset();
             });
             self.$cbx.on('click', function(e) {
@@ -47,23 +47,36 @@
             self.$cbx.on('keyup', function(e) {
                 e.which == 32 && self.change();
             });
-            self.$element.on('click', function(e) {
-                self.change();
+            $el.on('click', function(e) {
+                self.change(true);
             });
         },
         change: function () {
-            var self = this, $el = self.$element;
+            var self = this, $el = self.$element, flag = arguments.length && arguments[0];
             if (self.disabled) {
                 return;
             }
-            var options = self.options, val = parseInt(self.$element.val()), newVal, threeState = options.threeState;
+            var options = self.options, val = parseInt(self.$element.val()), newVal, 
+                threeState = options.threeState, isCbx = $el.is(':checkbox');
             if (threeState) {
                 newVal = val === 1 ? null : (val === 0 ? 1 : 0); 
             } else {
                 newVal = val === 1 ? 0 : 1;
             }
             $el.val(newVal);
-            self.$element.trigger('change');
+            if (!flag) {
+                $el.trigger('change');
+            } else {
+                if (isCbx) {
+                    if (newVal === 1) {
+                        $el.attr('checked','checked');
+                    } else {
+                        $el.removeAttr('checked');
+                    }
+                } else {
+                    $el.trigger('change');
+                }
+            }
             self.$cbx.html(self.getIndicator());
         },
         reset: function () {
