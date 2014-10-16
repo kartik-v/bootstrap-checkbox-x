@@ -115,10 +115,10 @@
             }
         },
         reset: function () {
-            var self = this;
-            self.$element.val(self.initialValue);
+            var self = this, $el = self.$element;
+            $el.val(self.initialValue);
             self.refresh();
-            self.$element.trigger('reset');
+            $el.trigger('checkbox.reset');
         },
         refresh: function (options) {
             var self = this;

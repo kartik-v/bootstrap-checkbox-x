@@ -21,7 +21,7 @@ An extended checkbox plugin for Bootstrap built using JQuery, which allows three
    input within a `label` tag as well.
 8. Ability to navigate to the checkbox controls via keyboard, and modify the values using the `space` bar on the keyboard.
 9. Ability to size the checkbox control. Five prebuilt size templates are available `xl`, `lg`, `md`, `sm`, and `xs`.
-10. Triggers JQuery events for advanced development. The plugin automatically triggers the `change` event for the input, whenever the checkbox value is changed via clicking. Events currently available are `change` and  `reset`.
+10. Triggers JQuery events for advanced development. The plugin automatically triggers the `change` event for the input, whenever the checkbox value is changed via clicking. Events currently available are `change` and  `checkbox.reset`.
 11. Ability to access methods and refresh the input dynamically via javascript at runtime.
 12. Disabled and readonly checkbox input support.
 13. Added support for displaying native checkboxes with tristate capability. When displaying native checkboxes, the advanced styling offerred by the plugin will not be available.
@@ -142,12 +142,12 @@ $('#input-id').on('change', function() {
 });
 ```
 
-#### reset
+#### checkbox.reset
 This event is triggered when the checkbox control is reset to initial value using the `reset` method or by resetting the form.
 
 **Example:**
 ```js
-$('#input-id').on('reset', function(event) {
+$('#input-id').on('checkbox.reset', function(event) {
     console.log("reset");
 });
 ```
