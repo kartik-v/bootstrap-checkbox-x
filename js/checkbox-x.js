@@ -27,6 +27,7 @@
                 $el.on('change', function(e) {
                     self.change(true, true);
                 });
+                $el.removeClass('cbx-loading');
                 return;
             }
             
