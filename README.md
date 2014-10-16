@@ -98,6 +98,8 @@ The `#input-id` is the identifier for the input on your page, which is hidden au
 
 Alternatively, you can directly call the plugin options by setting data attributes to your input field.
 
+> **Note:** You can add the `cbx-label` CSS class to your input labels to style it similar to bootstrap labels.
+
 ## Documentation
 
 ### Plugin Options

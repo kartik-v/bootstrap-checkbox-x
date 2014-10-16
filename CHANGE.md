@@ -3,6 +3,7 @@ version 1.3.0
 **Date:** 2014-10-16
 
 1. (enh #4): Add support for using native tristate checkboxes
+2. (enh #5): Add styling for labels similar to bootstrap
 
 version 1.2.0
 =============

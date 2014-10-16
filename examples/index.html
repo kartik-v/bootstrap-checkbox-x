@@ -54,31 +54,31 @@
     
     <hr>
     <div class="form-group">
-        <label class="control-label" for="check-1g">Left Label</label>
-        <input id="check-1g" value="1" data-toggle="checkbox-x" data-size="xl">
+        <label class="cbx-label" for="check-1g">Left Label</label>
+        <input id="check-1g" value="1" data-toggle="checkbox-x" data-size="sm">
         <span style="border-left: 1px solid #ddd; margin: 0 20px;"></span>
-        <input id="check-2g" value="0" data-toggle="checkbox-x" data-size="xl">
-        <label class="control-label" for="check-2g">Right Label</label>
+        <input id="check-2g" value="0" data-toggle="checkbox-x" data-size="md">
+        <label class="cbx-label" for="check-2g">Right Label</label>
         <span style="border-left: 1px solid #ddd; margin: 0 20px;"></span>
-        <label class="control-label">Enclosing Label
+        <label class="cbx-label">Enclosing Label
         <input id="check-3g" value="" data-toggle="checkbox-x" data-size="xl" data-enclosed-label="true">
     </div>
     
     <hr>
     <div class="form-group has-success">
-        <label class="control-label" for="check-1h">Success</label>
+        <label class="cbx-label" for="check-1h">Success</label>
         <input id="check-1h" type="checkbox" value="1" data-toggle="checkbox-x" data-size="xl">
     </div>
     
     <hr>
     <div class="form-group has-warning">
-        <label class="control-label" for="check-2h">Warning</label>
+        <label class="cbx-label" for="check-2h">Warning</label>
         <input id="check-2h" value="1" data-toggle="checkbox-x" data-size="xl">
     </div>
     
     <hr>
     <div class="form-group has-error">
-        <label class="control-label" for="check-3h">Danger</label>
+        <label class="cbx-label" for="check-3h">Danger</label>
         <input id="check-3h" value="1" data-toggle="checkbox-x" data-size="xl">
     </div>
     
@@ -98,7 +98,7 @@
     </div>   
      <hr>
     <div class="form-group">
-     Checkbox: <div class="checkbox"><label for="test"> Click me <input id="test" type="checkbox" value="1"/> </label></div>
+     Checkbox: <div class="checkbox"><label class="cbx-label" for="test"> Click me <input id="test" type="checkbox" value="1"/> </label></div>
     <br>The new value is: <span id="output"></span>
     <script>     
          $(function() {
@@ -106,6 +106,21 @@
         $el.checkboxX({'threeState': true, 'useNative':true});
         $el.on('change', function(evt) {
             $('#output').text($el.val());
+            console.log("Fired Change and val = " + $el.val());
+        });
+    });
+    </script>
+    </div>
+    <div class="form-group">
+     <h3>Enclosed Label</h3>
+     <label class="cbx-label" for="test-1"> Click me <input id="test-1" type="checkbox" /> </label>
+    <br>The new value is: <span id="output-1"></span>
+    <script>     
+         $(function() {
+        var $el = $('#test-1');
+        $el.checkboxX({'threeState': true, enclosedLabel: true});
+        $el.on('change', function(evt) {
+            $('#output-1').text($el.val());
             console.log("Fired Change and val = " + $el.val());
         });
     });
