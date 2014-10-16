@@ -72,13 +72,11 @@
         },
         change: function () {
             var self = this, $el = self.$element, flag = arguments.length && arguments[0],
-                useNative = arguments.length && arguments[1] === true;
+                useNative = arguments.length && arguments[1] === true, newVal;
             if (self.disabled) {
                 return;
             }
-            var options = self.options, val = parseInt($el.val()), 
-                threeState = options.threeState, 
-                newVal = self.getValue(threeState, val);
+            newVal = self.calculate();
             $el.val(newVal);
             if (!flag && !useNative) {
                 $el.trigger('change');
@@ -89,7 +87,9 @@
                 self.$cbx.html(self.getIndicator());
             }
         },
-        getValue: function(threeState, val) {
+        calculate: function() {
+            var self = this, $el=self.$element, val = parseInt($el.val()), 
+                threeState = self.options.threeState;
             if (threeState) {
                 return (val === 1 ? null : (val === 0 ? 1 : 0)); 
             } else {
