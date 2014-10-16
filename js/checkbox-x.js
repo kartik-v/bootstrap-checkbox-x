@@ -20,14 +20,17 @@
     CheckboxX.prototype = {
         constructor: CheckboxX,
         init: function (options) {
-            var self = this, $el = self.$element,
+            var self = this, $el = self.$element, isCbx = $el.is(':checkbox'), val = $el.val(),
                 css = options.inline ? 'cbx-container' : 'cbx-container cbx-block';
             self.options = options;
-            if (options.useNative && $el.is(':checkbox')) {
+            if (isCbx && val !== 0 && val !== 1 && options.threeState) {
+                $el.prop('indeterminate', true);
+            }
+            if (isCbx && options.useNative) {
                 $el.on('change', function(e) {
                     self.change(true, true);
                 });
-                $el.removeClass('cbx-loading');
+                $el.removeClass('cbx-loading');                
                 return;
             }
             
