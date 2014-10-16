@@ -23,9 +23,12 @@
             var self = this, $el = self.$element, isCbx = $el.is(':checkbox'), val = $el.val(),
                 css = options.inline ? 'cbx-container' : 'cbx-container cbx-block';
             self.options = options;
-            if (isCbx && val !== 0 && val !== 1 && options.threeState) {
-                $el.prop('indeterminate', true);
-            }
+            if (isCbx && val !== 0 && val !== 1) {
+                $el.attr('checked', false);
+                if (options.threeState) {
+                    $el.prop('indeterminate', true);
+                }
+            } 
             if (isCbx && options.useNative) {
                 $el.on('change', function(e) {
                     self.change(true, true);
@@ -57,9 +60,15 @@
             self.$cbx.on('keyup', function(e) {
                 e.which == 32 && self.change();
             });
-            $el.on('click', function(e) {
-                self.change(true);
-            });
+            if (isCbx && !options.useNative) {
+                $el.on('change', function(e) {
+                    self.change(true);
+                });
+            } else {
+                $el.on('click', function(e) {
+                    self.change(true);
+                });
+            }
         },
         change: function () {
             var self = this, $el = self.$element, flag = arguments.length && arguments[0],
@@ -67,35 +76,42 @@
             if (self.disabled) {
                 return;
             }
-            var options = self.options, val = parseInt($el.val()), newVal, 
-                threeState = options.threeState, isCbx = $el.is(':checkbox');
-            if (threeState) {
-                newVal = val === 1 ? null : (val === 0 ? 1 : 0); 
-            } else {
-                newVal = val === 1 ? 0 : 1;
-            }
+            var options = self.options, val = parseInt($el.val()), 
+                threeState = options.threeState, 
+                newVal = self.getValue(threeState, val);
             $el.val(newVal);
             if (!flag && !useNative) {
                 $el.trigger('change');
             } else {
-                if (isCbx) {
-                    $el.prop('indeterminate', false);
-                    if (newVal === 1) {
-                        $el.attr('checked','checked');
-                    } else {
-                        $el.removeAttr('checked');
-                        if (newVal !== 0) {
-                            $el.prop('indeterminate', true);
-                        }
-                    }
-                } else {
-                    if (!useNative) {
-                        $el.trigger('change');
-                    }
-                }
+                self.validateCheckbox(useNative, newVal);
             }
             if (!useNative) {
                 self.$cbx.html(self.getIndicator());
+            }
+        },
+        getValue: function(threeState, val) {
+            if (threeState) {
+                return (val === 1 ? null : (val === 0 ? 1 : 0)); 
+            } else {
+                return (val === 1 ? 0 : 1);
+            }
+        },
+        validateCheckbox: function(useNative, newVal) {
+            var self = this, $el = self.$element, isCbx = $el.is(':checkbox');
+            if (!isCbx) {
+                if (!useNative) {
+                    $el.trigger('change');
+                }
+                return;
+            }
+            $el.prop('indeterminate', false);
+            $el.prop('checked', false);
+            if (newVal == 1) {
+                $el.prop('checked', true);
+            } else {
+                if (newVal !== 0) {
+                    $el.prop('indeterminate', true);
+                }
             }
         },
         reset: function () {
