@@ -1,19 +1,25 @@
+version 1.3.0
+=============
+**Date:** 2014-10-16
+
+1. (enh #4): Add support for using native tristate checkboxes
+
 version 1.2.0
 =============
-**Date: 2014-10-15**
+**Date:** 2014-10-15
 
 1. Removed `labelClickEvent` property.
 2. (bug #3): Added `enclosedLabel` property for correct toggling of checkboxes enclosed inside labels.
 
 version 1.1.0
 =============
-**Date: 2014-10-10**
+**Date:** 2014-10-10
 
 1. (enh #2): Add `labelClickEvent` property for controlling triggering change event on label click.
 
 version 1.0.0
 =============
-**Date: 2014-06-12**
+**Date:** 2014-06-12
 
 Initial release. The following features are included in this release:
 

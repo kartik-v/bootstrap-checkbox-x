@@ -1,6 +1,6 @@
 /*!
  * @copyright &copy; Kartik Visweswaran, Krajee.com, 2014
- * @version 1.2.0
+ * @version 1.3.0
  *
  * An extended checkbox plugin for bootstrap with three states and additional styles.
  *
@@ -23,6 +23,13 @@
             var self = this, $el = self.$element,
                 css = options.inline ? 'cbx-container' : 'cbx-container cbx-block';
             self.options = options;
+            if (options.useNative && $el.is(':checkbox')) {
+                $el.on('change', function(e) {
+                    self.change(true, true);
+                });
+                return;
+            }
+            
             if (typeof self.$container == 'undefined') {
                 self.$container = $(document.createElement("div")).addClass(css).html(self.render());
                 $el.before(self.$container);
@@ -52,11 +59,12 @@
             });
         },
         change: function () {
-            var self = this, $el = self.$element, flag = arguments.length && arguments[0];
+            var self = this, $el = self.$element, flag = arguments.length && arguments[0],
+                useNative = arguments.length && arguments[1] === true;
             if (self.disabled) {
                 return;
             }
-            var options = self.options, val = parseInt(self.$element.val()), newVal, 
+            var options = self.options, val = parseInt($el.val()), newVal, 
                 threeState = options.threeState, isCbx = $el.is(':checkbox');
             if (threeState) {
                 newVal = val === 1 ? null : (val === 0 ? 1 : 0); 
@@ -64,20 +72,28 @@
                 newVal = val === 1 ? 0 : 1;
             }
             $el.val(newVal);
-            if (!flag) {
+            if (!flag && !useNative) {
                 $el.trigger('change');
             } else {
                 if (isCbx) {
+                    $el.prop('indeterminate', false);
                     if (newVal === 1) {
                         $el.attr('checked','checked');
                     } else {
                         $el.removeAttr('checked');
+                        if (newVal !== 0) {
+                            $el.prop('indeterminate', true);
+                        }
                     }
                 } else {
-                    $el.trigger('change');
+                    if (!useNative) {
+                        $el.trigger('change');
+                    }
                 }
             }
-            self.$cbx.html(self.getIndicator());
+            if (!useNative) {
+                self.$cbx.html(self.getIndicator());
+            }
         },
         reset: function () {
             var self = this;
@@ -144,7 +160,8 @@
         iconUnchecked: ' ',
         iconNull: '<i class="glyphicon glyphicon-stop"></i>',
         size: 'md',
-        enclosedLabel: false
+        enclosedLabel: false,
+        useNative: false
     };
 
     $('input[data-toggle="checkbox-x"]').addClass('cbx-loading');

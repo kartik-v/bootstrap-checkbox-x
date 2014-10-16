@@ -98,13 +98,12 @@
     </div>   
      <hr>
     <div class="form-group">
-     
-     Checkbox: <label for="test"> Click me <input id="test" value="1"/> </label>
+     Checkbox: <div class="checkbox"><label for="test"> Click me <input id="test" type="checkbox" value="1"/> </label></div>
     <br>The new value is: <span id="output"></span>
     <script>     
          $(function() {
         var $el = $('#test');
-        $el.checkboxX({'threeState': true, 'enclosedLabel':true});
+        $el.checkboxX({'threeState': true, 'useNative':true});
         $el.on('change', function(evt) {
             $('#output').text($el.val());
             console.log("Fired Change and val = " + $el.val());
