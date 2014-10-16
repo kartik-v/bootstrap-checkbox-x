@@ -104,8 +104,8 @@ Alternatively, you can directly call the plugin options by setting data attribut
 The plugin supports these following options:
 
 ##### threeState
-_boolean_, whether to use three states for the checkbox. This will allow you to save `null` values, in addition to the built in `true` and `false` values.
-Defaults to `true`. If set to `false`, it will allow only the default two values: `true` and `false`.
+_boolean_, whether to use three states for the checkbox. This will allow you to save `null` values, in addition to the built in `1` and `0` values.
+Defaults to `true`. If set to `false`, it will allow only the default two values: `1` and `0`.
 
 ##### inline
 _boolean_, whether the checkboxes are to be styled in an inline-block with other elements placed before or after. Defaults to `true`. 
