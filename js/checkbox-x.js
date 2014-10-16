@@ -33,7 +33,6 @@
                 $el.removeClass('cbx-loading');                
                 return;
             }
-            
             if (typeof self.$container == 'undefined') {
                 self.$container = $(document.createElement("div")).addClass(css).html(self.render());
                 $el.before(self.$container);
