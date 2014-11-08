@@ -1,6 +1,6 @@
 /*!
  * @copyright &copy; Kartik Visweswaran, Krajee.com, 2014
- * @version 1.3.0
+ * @version 1.4.0
  *
  * An extended checkbox plugin for bootstrap with three states and additional styles.
  *

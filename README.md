@@ -26,7 +26,7 @@ An extended checkbox plugin for Bootstrap built using JQuery, which allows three
 12. Disabled and readonly checkbox input support.
 13. Added support for displaying native checkboxes with tristate capability. When displaying native checkboxes, the advanced styling offerred by the plugin will not be available.
 
-> NOTE: The latest version of the plugin v1.3.0 has been released. Refer the [CHANGE LOG](https://github.com/kartik-v/bootstrap-checkbox-x/blob/master/CHANGE.md) for details.
+> NOTE: The latest version of the plugin v1.4.0 has been released. Refer the [CHANGE LOG](https://github.com/kartik-v/bootstrap-checkbox-x/blob/master/CHANGE.md) for details.
 
 ## Demo
 
@@ -98,7 +98,7 @@ The `#input-id` is the identifier for the input on your page, which is hidden au
 
 Alternatively, you can directly call the plugin options by setting data attributes to your input field.
 
-> **Note:** You can add the `cbx-label` CSS class to your input labels to style it similar to bootstrap labels.
+> **Note:** You can add the CSS class `cbx-label` to the labels for your checkbox inputs to style them similar to bootstrap's checkbox labels (with additional enhancements for contextual colors).
 
 ## Documentation
 

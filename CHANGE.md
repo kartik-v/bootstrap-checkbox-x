@@ -1,26 +1,33 @@
+version 1.4.0
+=============
+**Date**: 08-Nov-2014
+
+1. Set release to stable in composer.json.
+2. Updated CHANGE log to reflect user friendly date time formats.
+
 version 1.3.0
 =============
-**Date:** 2014-10-16
+**Date:** 16-Oct-2014
 
 1. (enh #4): Add support for using native tristate checkboxes
 2. (enh #5): Add styling for labels similar to bootstrap
 
 version 1.2.0
 =============
-**Date:** 2014-10-15
+**Date:** 15-Oct-2014
 
 1. Removed `labelClickEvent` property.
 2. (bug #3): Added `enclosedLabel` property for correct toggling of checkboxes enclosed inside labels.
 
 version 1.1.0
 =============
-**Date:** 2014-10-10
+**Date:** 10-Oct-2014
 
 1. (enh #2): Add `labelClickEvent` property for controlling triggering change event on label click.
 
 version 1.0.0
 =============
-**Date:** 2014-06-12
+**Date:** 12-Jun-2014
 
 Initial release. The following features are included in this release:
 
