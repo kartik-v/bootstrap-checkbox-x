@@ -54,7 +54,7 @@
             });
             self.$cbx.on('click', function(e) {
                 if (!options.enclosedLabel) {
-                    self.change();
+                    self.change(true);
                 }
             });
             self.$cbx.on('keyup', function(e) {
