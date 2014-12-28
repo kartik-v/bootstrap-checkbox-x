@@ -55,9 +55,16 @@
                 self.reset();
             });
             self.$cbx.on('click', function(e) {
+                if (!isCbx && options.threeState) {
+                    return;
+                }
                 if (!options.enclosedLabel && !options.useNative) {
-                    self.skipChange = true;
-                    self.change(true);
+                    if (options.threeState) {
+                        self.change(false);
+                    } else {
+                        self.skipChange = true;
+                        self.change(true);
+                    }
                 }
             });
             self.$cbx.on('keyup', function(e) {
