@@ -1,6 +1,6 @@
 /*!
  * @copyright &copy; Kartik Visweswaran, Krajee.com, 2014
- * @version 1.4.0
+ * @version 1.5.0
  *
  * An extended checkbox plugin for bootstrap with three states and additional styles.
  *
@@ -23,6 +23,7 @@
             var self = this, $el = self.$element, isCbx = $el.is(':checkbox'), val = $el.val(),
                 css = options.inline ? 'cbx-container' : 'cbx-container cbx-block';
             self.options = options;
+            self.skipChange = false;
             if (isCbx && val !== 0 && val !== 1) {
                 $el.attr('checked', false);
                 if (options.threeState) {
@@ -31,9 +32,10 @@
             } 
             if (isCbx && options.useNative) {
                 $el.on('change', function(e) {
-                    self.change(true, true);
+                    self.change(false);
                 });
-                $el.removeClass('cbx-loading');                
+                $el.removeClass('cbx-loading'); 
+                self.setCheckboxProp($el.val());               
                 return;
             }
             if (typeof self.$container == 'undefined') {
@@ -53,38 +55,45 @@
                 self.reset();
             });
             self.$cbx.on('click', function(e) {
-                if (!options.enclosedLabel) {
-                    self.change();
+                if (!options.enclosedLabel && !options.useNative) {
+                    self.skipChange = true;
+                    self.change(true);
                 }
             });
             self.$cbx.on('keyup', function(e) {
-                e.which == 32 && self.change();
+                e.which == 32 && self.change(true);
             });
             if (isCbx && !options.useNative) {
                 $el.on('change', function(e) {
-                    self.change(true);
+                    self.change(false, self.skipChange);
                 });
             } else {
                 $el.on('click', function(e) {
-                    self.change(true);
+                    self.change(false);
                 });
             }
         },
-        change: function () {
-            var self = this, $el = self.$element, flag = arguments.length && arguments[0],
-                useNative = arguments.length && arguments[1] === true, newVal;
+        change: function (trigChange) {
+            var self = this, $el = self.$element, 
+                skipTrig = arguments.length > 1 && arguments[1],
+                useNative = self.options.useNative, newVal;
             if (self.disabled) {
                 return;
             }
             newVal = self.calculate();
-            $el.val(newVal);
-            if (!flag && !useNative) {
+            if (!skipTrig) {
+                $el.val(newVal);
+            }
+            if (trigChange && !useNative && !skipTrig) {
                 $el.trigger('change');
             } else {
                 self.validateCheckbox(useNative, newVal);
             }
             if (!useNative) {
                 self.$cbx.html(self.getIndicator());
+            }
+            if (skipTrig) {
+                self.skipChange = false;
             }
         },
         calculate: function() {
@@ -102,6 +111,13 @@
                 if (!useNative) {
                     $el.trigger('change');
                 }
+                return;
+            }
+            self.setCheckboxProp(newVal);
+        },
+        setCheckboxProp: function(newVal) {
+            var self = this, $el = self.$element, isCbx = $el.is(':checkbox');
+            if (!isCbx) {
                 return;
             }
             $el.prop('indeterminate', false);

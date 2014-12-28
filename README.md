@@ -26,7 +26,7 @@ An extended checkbox plugin for Bootstrap built using JQuery, which allows three
 12. Disabled and readonly checkbox input support.
 13. Added support for displaying native checkboxes with tristate capability. When displaying native checkboxes, the advanced styling offerred by the plugin will not be available.
 
-> NOTE: The latest version of the plugin v1.4.0 has been released. Refer the [CHANGE LOG](https://github.com/kartik-v/bootstrap-checkbox-x/blob/master/CHANGE.md) for details.
+> NOTE: The latest version of the plugin v1.5.0 has been released. Refer the [CHANGE LOG](https://github.com/kartik-v/bootstrap-checkbox-x/blob/master/CHANGE.md) for details.
 
 ## Demo
 

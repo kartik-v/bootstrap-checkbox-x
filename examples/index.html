@@ -88,17 +88,7 @@
         <input id="check-2i" value="0" data-toggle="checkbox-x" data-size="xl" data-inline="false">
         <input id="check-3i" value="" data-toggle="checkbox-x" data-size="xl" data-inline="false"><br>
         
-    </div>   
-     <hr>
-    <div class="form-group">
-     Checkbox: <div class="checkbox"><label class="cbx-label" for="test"> Click me <input id="test" type="checkbox" value="1"/> </label></div>
-    <br>The new value is: <span id="output"></span>
-    
-    </div>
-    <div class="form-group">
-     <h3>Enclosed Label</h3>
-     <label class="cbx-label" for="test-1"> Click me <input id="test-1" type="checkbox" /> </label>
-    <br>The new value is: <span id="output-1"></span>
+    </div>  
     <script>   
         $(document).on('ready', function() {
             $('#check-1h').on('change', function(e) {
@@ -107,23 +97,102 @@
                 //$this.attr('disabled', 'disabled');
                 //$this.checkboxX('refresh');
             });
-            //
-            var $el = $('#test');
-            $el.checkboxX({'threeState': true, 'useNative':true});
-            $el.on('change', function(evt) {
-                $('#output').text($el.val());
-                console.log("Fired Change and val = " + $el.val());
-            });
-            //
-            var $el = $('#test-1');
-            $el.checkboxX({'threeState': false, enclosedLabel: true});
-            $el.on('change', function(evt) {
-                $('#output-1').text($el.val());
-                console.log("Fired Change and val = " + $el.val());
+        });
+    </script>
+    
+     <hr>
+     <h3>Native Enclosed</h3>
+     <div class="checkbox"><label class="cbx-label" for="test-kv-96"> Click me <input id="test-kv-96" type="checkbox" checked value="1"/> </label></div>
+    <script>
+        $(document).on('ready', function(){
+            $("#test-kv-96").checkboxX({useNative: true, enclosedLabel:true});
+            $("#test-kv-96").on('change', function() {
+                $('#kv-96').html($(this).val());
+                console.log("Fired Change for kv-96 and val = " + $(this).val());
             });
         });
     </script>
-    </div>
+    <div id="kv-96" class="container well"></div>
+    <hr>
+     <h3>Native Non Enclosed</h3>
+     <div class="checkbox"><label class="cbx-label" for="test-kv-97"> Click me </label> <input id="test-kv-97" type="checkbox" checked value="1"/></div>
+    <script>
+        $(document).on('ready', function(){
+            $("#test-kv-97").checkboxX({useNative: true});
+            $("#test-kv-97").on('change', function() {
+                $('#kv-97').html($(this).val());
+                console.log("Fired Change for kv-97 and val = " + $(this).val());
+            });
+        });
+    </script>
+    <div id="kv-97" class="container well"></div>
+    
+     <hr>
+     <h3>Markup Test</h3>
+     <div class="checkbox"><label class="cbx-label" for="test-kv-98"> Click me <input id="test-kv-98" type="checkbox" value="1"/> </label></div>
+    <script>
+        $(document).on('ready', function(){
+            $("#test-kv-98").checkboxX({enclosedLabel:true});
+            $("#test-kv-98").on('change', function() {
+                $('#kv-98').html($(this).val());
+                console.log("Fired Change for kv-98 and val = " + $(this).val());
+            });
+        });
+    </script>
+    <div id="kv-98" class="container well"></div>
+     <hr>
+     <h3>Enclosed Label</h3>
+    <label for="test-kv-99">Kartik</label><input id="test-kv-99" type="checkbox" />
+    <script>
+        $(document).on('ready', function(){
+            $("#test-kv-99").checkboxX({'threeState': false});
+            $("#test-kv-99").on('change', function() {
+                $('#kv-99').html($(this).val());
+                console.log("Fired Change for kv-99 and val = " + $(this).val());
+            });
+        });
+    </script>
+    <div id="kv-99" class="container well"></div>
+    
+    <hr>
+     <h3>Non Enclosed Label</h3>
+    <label for="test-kv-100">Kartik</label><input id="test-kv-100" type="checkbox" />
+    <script>
+        $(document).on('ready', function(){
+            $("#test-kv-100").checkboxX({'threeState': false});
+            $("#test-kv-100").on('change', function() {
+                $('#kv-100').html($(this).val());
+                console.log("Fired Change for kv-100 and val = " + $(this).val());
+            });
+        });
+    </script>
+    <div id="kv-100" class="container well"></div>
+    <hr>
+    <h3>Enclosed Label (3 state)</h3>
+    <label for="test-kv-101">Kartik<input id="test-kv-101" type="checkbox" /></label>
+    <script>
+        $(document).on('ready', function(){
+            $("#test-kv-101").checkboxX({enclosedLabel:true});
+            $("#test-kv-101").on('change', function() {
+                $('#kv-101').html($(this).val());
+                console.log("Fired Change for kv-101 and val = " + $(this).val());
+            });
+        });
+    </script>
+    <div id="kv-101" class="container well"></div>
+    <hr>
+     <h3>Non Enclosed Label (3 state)</h3>
+    <label for="test-kv-102">Kartik</label><input id="test-kv-102" type="checkbox" />
+    <script>
+        $(document).on('ready', function(){
+            $("#test-kv-102").checkboxX();
+            $("#test-kv-102").on('change', function() {
+                $('#kv-102').html($(this).val());
+                console.log("Fired Change for kv-102 and val = " + $(this).val());
+            });
+        });
+    </script>
+   <div id="kv-102" class="container well"></div>
 </div>
 
 
