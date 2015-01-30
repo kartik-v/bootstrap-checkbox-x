@@ -1,6 +1,6 @@
 /*!
  * @copyright &copy; Kartik Visweswaran, Krajee.com, 2014
- * @version 1.5.0
+ * @version 1.5.1
  *
  * An extended checkbox plugin for Bootstrap 3 that allows three states and additional styles.
  *
@@ -15,6 +15,7 @@
     background: transparent url('../img/loading.gif') top left no-repeat;
     border: none;
 }
+
 .cbx, .cbx-container {
     display: inline-block;
     cursor: default;

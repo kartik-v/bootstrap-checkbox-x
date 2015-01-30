@@ -1,6 +1,6 @@
 /*!
  * @copyright &copy; Kartik Visweswaran, Krajee.com, 2014
- * @version 1.5.0
+ * @version 1.5.1
  *
  * An extended checkbox plugin for bootstrap with three states and additional styles.
  *
@@ -8,7 +8,6 @@
  * For more Yii related demos visit http://demos.krajee.com
  */
 !function ($) {
-
     var CheckboxX = function (element, options) {
         var self = this;
         self.$element = $(element);
@@ -29,13 +28,13 @@
                 if (options.threeState) {
                     $el.prop('indeterminate', true);
                 }
-            } 
+            }
             if (isCbx && options.useNative) {
-                $el.on('change', function(e) {
+                $el.on('change', function (e) {
                     self.change(false);
                 });
-                $el.removeClass('cbx-loading'); 
-                self.setCheckboxProp($el.val());               
+                $el.removeClass('cbx-loading');
+                self.setCheckboxProp($el.val());
                 return;
             }
             if (typeof self.$container == 'undefined') {
@@ -54,7 +53,7 @@
             $el.closest('form').on('reset', function (e) {
                 self.reset();
             });
-            self.$cbx.on('click', function(e) {
+            self.$cbx.on('click', function (e) {
                 if (!isCbx && options.threeState) {
                     return;
                 }
@@ -67,21 +66,21 @@
                     }
                 }
             });
-            self.$cbx.on('keyup', function(e) {
+            self.$cbx.on('keyup', function (e) {
                 e.which == 32 && self.change(true);
             });
             if (isCbx && !options.useNative) {
-                $el.on('change', function(e) {
+                $el.on('change', function (e) {
                     self.change(false, self.skipChange);
                 });
             } else {
-                $el.on('click', function(e) {
+                $el.on('click', function (e) {
                     self.change(false);
                 });
             }
         },
         change: function (trigChange) {
-            var self = this, $el = self.$element, 
+            var self = this, $el = self.$element,
                 skipTrig = arguments.length > 1 && arguments[1],
                 useNative = self.options.useNative, newVal;
             if (self.disabled) {
@@ -103,16 +102,16 @@
                 self.skipChange = false;
             }
         },
-        calculate: function() {
-            var self = this, $el=self.$element, val = parseInt($el.val()), 
+        calculate: function () {
+            var self = this, $el = self.$element, val = parseInt($el.val()),
                 threeState = self.options.threeState;
             if (threeState) {
-                return (val === 1 ? null : (val === 0 ? 1 : 0)); 
+                return (val === 1 ? null : (val === 0 ? 1 : 0));
             } else {
                 return (val === 1 ? 0 : 1);
             }
         },
-        validateCheckbox: function(useNative, newVal) {
+        validateCheckbox: function (useNative, newVal) {
             var self = this, $el = self.$element, isCbx = $el.is(':checkbox');
             if (!isCbx) {
                 if (!useNative) {
@@ -122,7 +121,7 @@
             }
             self.setCheckboxProp(newVal);
         },
-        setCheckboxProp: function(newVal) {
+        setCheckboxProp: function (newVal) {
             var self = this, $el = self.$element, isCbx = $el.is(':checkbox');
             if (!isCbx) {
                 return;
@@ -162,8 +161,10 @@
             if (val === 1) {
                 icon = options.iconChecked;
             }
-            else if (val !== 0 && self.options.threeState == true) {
-                icon = options.iconNull;
+            else {
+                if (val !== 0 && self.options.threeState == true) {
+                    icon = options.iconNull;
+                }
             }
             return icon;
         },
@@ -186,7 +187,8 @@
                 options = typeof option === 'object' && option;
 
             if (!data) {
-                $this.data('checkboxX', (data = new CheckboxX(this, $.extend({}, $.fn.checkboxX.defaults, options, $(this).data()))));
+                $this.data('checkboxX',
+                    (data = new CheckboxX(this, $.extend({}, $.fn.checkboxX.defaults, options, $(this).data()))));
             }
 
             if (typeof option === 'string') {

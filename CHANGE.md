@@ -1,3 +1,9 @@
+version 1.5.1
+=============
+**Date**: 30-Jan-2015
+
+- Code cleanup and formatting
+
 version 1.5.0
 =============
 **Date**: 28-Dec-2014
