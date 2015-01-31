@@ -211,6 +211,8 @@
         useNative: false
     };
 
+    $.fn.checkboxX.Constructor = CheckboxX;
+
     $('input[data-toggle="checkbox-x"]').addClass('cbx-loading');
 
     $(document).ready(function () {

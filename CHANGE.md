@@ -3,6 +3,7 @@ version 1.5.1
 **Date**: 31-Jan-2015
 
 - (enh #13): Code restructure and formatting to cleanup various lint errors (using JSHint Code cleanup library).
+- (enh #14): Implement reusable constructor for extending plugin if needed.
 
 version 1.5.0
 =============
