@@ -1,8 +1,8 @@
 version 1.5.1
 =============
-**Date**: 30-Jan-2015
+**Date**: 31-Jan-2015
 
-- Code cleanup and formatting
+- (enh #13): Code restructure and formatting to cleanup various lint errors (using JSHint Code cleanup library).
 
 version 1.5.0
 =============

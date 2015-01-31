@@ -7,14 +7,15 @@
  * For more JQuery/Bootstrap plugins and demos visit http://plugins.krajee.com
  * For more Yii related demos visit http://demos.krajee.com
  */
-!function ($) {
+(function ($) {
+    "use strict";
     var CheckboxX = function (element, options) {
         var self = this;
         self.$element = $(element);
         self.disabled = self.$element.attr('disabled') || self.$element.attr('readonly');
         self.initialValue = self.$element.val();
         self.init(options);
-    }
+    };
 
     CheckboxX.prototype = {
         constructor: CheckboxX,
@@ -30,14 +31,14 @@
                 }
             }
             if (isCbx && options.useNative) {
-                $el.on('change', function (e) {
+                $el.on('change', function () {
                     self.change(false);
                 });
                 $el.removeClass('cbx-loading');
                 self.setCheckboxProp($el.val());
                 return;
             }
-            if (typeof self.$container == 'undefined') {
+            if (self.$container === undefined) {
                 self.$container = $(document.createElement("div")).addClass(css).html(self.render());
                 $el.before(self.$container);
                 self.$container.append($el);
@@ -50,10 +51,10 @@
             }
             $el.removeClass('cbx-loading');
             self.$cbx = self.$container.find('.cbx');
-            $el.closest('form').on('reset', function (e) {
+            $el.closest('form').on('reset', function () {
                 self.reset();
             });
-            self.$cbx.on('click', function (e) {
+            self.$cbx.on('click', function () {
                 if (!isCbx && options.threeState) {
                     return;
                 }
@@ -67,14 +68,16 @@
                 }
             });
             self.$cbx.on('keyup', function (e) {
-                e.which == 32 && self.change(true);
+                if (e.which === 32) {
+                    self.change(true);
+                }
             });
             if (isCbx && !options.useNative) {
-                $el.on('change', function (e) {
+                $el.on('change', function () {
                     self.change(false, self.skipChange);
                 });
             } else {
-                $el.on('click', function (e) {
+                $el.on('click', function () {
                     self.change(false);
                 });
             }
@@ -128,7 +131,7 @@
             }
             $el.prop('indeterminate', false);
             $el.prop('checked', false);
-            if (newVal == 1) {
+            if (newVal === 1) {
                 $el.prop('checked', true);
             } else {
                 if (newVal !== 0) {
@@ -162,7 +165,7 @@
                 icon = options.iconChecked;
             }
             else {
-                if (val !== 0 && self.options.threeState == true) {
+                if (val !== 0 && self.options.threeState) {
                     icon = options.iconNull;
                 }
             }
@@ -213,4 +216,4 @@
     $(document).ready(function () {
         $('input[data-toggle="checkbox-x"]').checkboxX();
     });
-}(window.jQuery);
+})(window.jQuery);
