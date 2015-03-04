@@ -1,6 +1,6 @@
 /*!
  * @copyright &copy; Kartik Visweswaran, Krajee.com, 2014 - 2015
- * @version 1.5.1
+ * @version 1.5.2
  *
  * An extended checkbox plugin for bootstrap with three states and additional styles.
  *
@@ -20,7 +20,7 @@
     CheckboxX.prototype = {
         constructor: CheckboxX,
         init: function (options) {
-            var self = this, $el = self.$element, isCbx = $el.is(':checkbox'), val = $el.val(),
+            var self = this, $el = self.$element, isCbx = $el.is(':checkbox'), val = parseInt($el.val()),
                 css = options.inline ? 'cbx-container' : 'cbx-container cbx-block';
             self.options = options;
             self.skipChange = false;
@@ -55,7 +55,8 @@
                 self.reset();
             });
             self.$cbx.on('click', function () {
-                if (!isCbx && options.threeState) {
+                if (!isCbx && !options.enclosedLabel) {
+                    self.change(true);
                     return;
                 }
                 if (!options.enclosedLabel && !options.useNative) {
@@ -117,20 +118,14 @@
         validateCheckbox: function (useNative, newVal) {
             var self = this, $el = self.$element, isCbx = $el.is(':checkbox');
             if (!isCbx) {
-                if (!useNative) {
-                    $el.trigger('change');
-                }
+                $el.trigger('change');
                 return;
             }
             self.setCheckboxProp(newVal);
         },
-        setCheckboxProp: function (newVal) {
-            var self = this, $el = self.$element, isCbx = $el.is(':checkbox');
-            if (!isCbx) {
-                return;
-            }
-            $el.prop('indeterminate', false);
-            $el.prop('checked', false);
+        setCheckboxProp: function (val) {
+            var self = this, $el = self.$element, newVal = parseInt(val);
+            $el.prop('indeterminate', false).prop('checked', false);
             if (newVal === 1) {
                 $el.prop('checked', true);
             } else {

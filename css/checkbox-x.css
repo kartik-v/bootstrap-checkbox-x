@@ -37,6 +37,16 @@
     vertical-align: middle;
 }
 
+.cbx-label.disabled {
+    cursor: not-allowed;
+    opacity: .65;
+}
+
+.cbx-native input {
+    position: absolute;
+    margin: 5px;
+}
+
 label + .cbx-container, .cbx-container + label, .cbx-container + .cbx-container {
     margin-left: 5px;
 }

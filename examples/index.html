@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8"/>
     <title>Krajee JQuery Plugins - &copy; Kartik </title>
-    <link href="http://netdna.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <link href="http://netdna.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
     <link href="../css/checkbox-x.css" media="all" rel="stylesheet" type="text/css"/>
     <script src="../js/checkbox-x.js" type="text/javascript"></script>
@@ -21,7 +21,18 @@
                 console.log("Fired change for input id = 'test-" + id + "' with val = '" + val + "'");
             });
         });
-    }
+    };
+    var kvChg = function(ids) {
+        var $el;
+        $.each(ids, function(key, id) {
+            $el = $('#' + id);
+            $el.on('change', function() {
+                var val = $el.val();
+                if (val.length == 0) val = "NULL";
+                console.log("Fired change for input id = 'test-" + id + "' with val = '" + val + "'");
+            });
+        });
+    };
 </script>
 </head>
 <body>
@@ -111,12 +122,19 @@
         
     </div>
     
+    <script>kvChg(['check-1a', 'check-2a', 'check-3a', 'check-1b', 'check-2b', 'check-3b', 
+        'check-1c', 'check-2c', 'check-3c', 'check-1d', 'check-2d', 'check-3d', 
+        'check-1e', 'check-2e', 'check-3e', 'check-1f', 'check-2f', 'check-3f', 
+        'check-1g', 'check-2g', 'check-3g', 'check-1h', 'check-2h', 'check-3h', 
+        'check-1i', 'check-2i', 'check-3i']);</script>
     <div class="page-header">
         <h3>Enclosed Label (Native 2 state)</h3>
     </div>
     <div class="row">
         <div class="col-sm-3">
-            <div class="checkbox"><label class="cbx-label" for="test-kv-94"> Click me <input id="test-kv-94" type="checkbox" checked value="1"/> </label></div>
+            <div class="checkbox">
+                <label class="cbx-label" for="test-kv-94"><input id="test-kv-94" type="checkbox" checked value="1"/> Click me</label>
+            </div>
         </div>
         <div class="col-sm-4">
             <div class="alert alert-info">Value: <code id="kv-94"></code></div>
@@ -129,7 +147,9 @@
     </div>
     <div class="row">
         <div class="col-sm-3">
-            <div class="checkbox"><label class="cbx-label" for="test-kv-95"> Click me </label> <input id="test-kv-95" type="checkbox" checked value="1"/></div>
+            <div class="cbx-native">
+                <label class="cbx-label" for="test-kv-95"> Click me </label> <input id="test-kv-95" type="checkbox" checked value="1"/>
+            </div>
         </div>
         <div class="col-sm-4">
             <div class="alert alert-info">Value: <code id="kv-95"></code></div>
@@ -142,7 +162,9 @@
     </div>
     <div class="row">
         <div class="col-sm-3">
-            <div class="checkbox"><label class="cbx-label" for="test-kv-96"> Click me <input id="test-kv-96" type="checkbox" checked value="1"/> </label></div>
+            <div class="checkbox">
+                <label><input id="test-kv-96" type="checkbox" checked value="1"/> Click me</label>
+            </div>
         </div>
         <div class="col-sm-4">
              <div class="alert alert-info">Value: <code id="kv-96"></code></div>
@@ -156,7 +178,7 @@
     
     <div class="row">
         <div class="col-sm-3">
-            <div class="checkbox"><label class="cbx-label" for="test-kv-97"> Click me </label> <input id="test-kv-97" type="checkbox" checked value="1"/></div>
+            <div class="cbx-native"><label class="cbx-label" for="test-kv-97"> Click me </label> <input id="test-kv-97" type="checkbox" checked value="1"/></div>
         </div>
         <div class="col-sm-4">
              <div class="alert alert-info">Value: <code id="kv-97"></code></div>
