@@ -55,70 +55,93 @@ label + .cbx-container, .cbx-container + label, .cbx-container + .cbx-container 
 label .cbx {
     margin: 0 5px;
 }
+
 .cbx-xs {
     width: 16px;
     height: 16px;
     font-size: 10px;
 }
+
 .cbx-sm {
     width: 20px;
     height: 20px;
     font-size: 13px;
 }
+
 .cbx-md {
     width: 24px;
     height: 24px;
     font-size: 15px;
 }
+
 .cbx-lg {
     border-radius: 4px;
     width: 30px;
     height: 30px;
     font-size: 20px;
 }
+
 .cbx-xl {
     border-radius: 5px;
     width: 36px;
     height: 36px;
     font-size: 24px;
 }
+
 .cbx-icon {
     position: absolute;
-    margin: 1px;; 
-    top: 0; left: 0; bottom: 0; right: 0;
+    margin: 1px;;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
 }
+
 .cbx-icon-null {
     background-color: #333;
 }
+
 .has-error .cbx-icon-null {
     background-color: #843534;
 }
+
 .has-success .cbx-icon-null {
     background-color: #66512c;
 }
+
 .has-warning .cbx-icon-null {
     background-color: #2b542c;
 }
+
 .cbx-xs .cbx-icon-null {
     padding: 4px;
     margin: 2px;
 }
+
 .cbx-sm .cbx-icon-null {
     padding: 5px;
     margin: 3px;
 }
+
 .cbx-md .cbx-icon-null {
     padding: 6px;
     margin: 4px;
 }
+
 .cbx-lg .cbx-icon-null {
     padding: 8px;
     margin: 5px;
 }
+
 .cbx-xl .cbx-icon-null {
     padding: 10px;
     margin: 6px;
 }
+
+.cbx-disabled .cbx-icon-null {
+    background-color: #aaa;
+}
+
 .cbx-active {
     border: 1px solid #ccc;
     box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
