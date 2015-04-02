@@ -71,6 +71,7 @@
             self.$cbx.on('keyup', function (e) {
                 if (e.which === 32) {
                     self.change(true);
+                    e.preventDefault();
                 }
             });
             if (isCbx && !options.useNative) {
@@ -164,7 +165,7 @@
                     icon = options.iconNull;
                 }
             }
-            return icon;
+            return '<span class="cbx-icon">' + icon + '</span>';
         },
         render: function () {
             var self = this,
@@ -200,7 +201,7 @@
         inline: true,
         iconChecked: '<i class="glyphicon glyphicon-ok"></i>',
         iconUnchecked: ' ',
-        iconNull: '<i class="glyphicon glyphicon-stop"></i>',
+        iconNull: '<div class="cbx-icon-null"></div>',
         size: 'md',
         enclosedLabel: false,
         useNative: false

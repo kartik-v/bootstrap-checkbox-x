@@ -65,7 +65,7 @@ You can also manually install the plugin easily to your project. Just download t
 Step 1: Load the following assets in your header. 
 
 ```html
-<link href="http://netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
 <link href="path/to/css/checkbox-x.min.css" media="all" rel="stylesheet" type="text/css" />
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 <script src="path/to/js/checkbox-x.min.js" type="text/javascript"></script>
@@ -120,7 +120,7 @@ _string_, the html markup for the glyph / icon to be displayed when the checkbox
 _string_, the html markup for the glyph / icon to be displayed when the checkbox is unchecked. Defaults to a blank character ` `.
 
 ##### iconNull
-_string_, the html markup for the glyph / icon to be displayed when the checkbox is null. Defaults to `<i class="glyphicon glyphicon-stop"></i>`.
+_string_, the html markup for the glyph / icon to be displayed when the checkbox is null. Defaults to `<div class="cbx-icon-null"></div>`.
 
 #### size
 _string_, size of the checkbox control. Should be one of `xl`, `lg`, `md`, `sm`, or `xs`. Defaults to `md`.

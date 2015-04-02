@@ -1,10 +1,12 @@
 version 1.5.2
 =============
-**Date**: 05-Mar-2015
+**Date**: 02-Apr-2015
 
 - (bug #15): Fix init issues when checkboxX is initialized on non-checkbox input (e.g. text).
 - (enh #16): Styling enhancements for native checkbox to be compatible with Bootstrap v3.3.2+.
 - (enh #17): Parse checkbox values correctly using integer comparison.
+- (enh #18): Enhancement to checkbox styles to align indicators centered perfectly.
+- (enh #19): Better default markup for `iconNull`.
 
 version 1.5.1
 =============
