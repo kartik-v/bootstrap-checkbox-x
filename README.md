@@ -1,6 +1,12 @@
 bootstrap-checkbox-x
 =====================
 
+[![BOWER version](https://badge-me.herokuapp.com/api/bower/kartik-v/bootstrap-checkbox-x.png)](http://badges.enytc.com/for/bower/kartik-v/bootstrap-checkbox-x)
+[![Latest Stable Version](https://poser.pugx.org/kartik-v/bootstrap-checkbox-x/v/stable)](https://packagist.org/packages/kartik-v/bootstrap-checkbox-x)
+[![License](https://poser.pugx.org/kartik-v/bootstrap-checkbox-x/license)](https://packagist.org/packages/kartik-v/bootstrap-checkbox-x)
+[![Packagist Downloads](https://poser.pugx.org/kartik-v/bootstrap-checkbox-x/downloads)](https://packagist.org/packages/kartik-v/bootstrap-checkbox-x)
+[![Monthly Downloads](https://poser.pugx.org/kartik-v/bootstrap-checkbox-x/d/monthly)](https://packagist.org/packages/kartik-v/bootstrap-checkbox-x)
+
 An extended checkbox plugin for Bootstrap built using JQuery, which allows three checkbox states and includes additional styles. The plugin uses Bootstrap markup and CSS 3 styling by default, but it can be overridden with any other CSS markup. It also helps you to fallback to a native checkbox OR display native checkboxes with tristate capability.
 
 > NOTE: The checkbox plugin stores the values as integer format (and not boolean format) for checked and unchecked states.
