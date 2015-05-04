@@ -1,7 +1,7 @@
 bootstrap-checkbox-x
 =====================
 
-[![BOWER version](https://badge-me.herokuapp.com/api/bower/kartik-v/bootstrap-checkbox-x.png)](http://badges.enytc.com/for/bower/kartik-v/bootstrap-checkbox-x)
+[![Bower version](https://badge.fury.io/bo/bootstrap-checkbox-x.svg)](http://badge.fury.io/bo/bootstrap-checkbox-x)
 [![Latest Stable Version](https://poser.pugx.org/kartik-v/bootstrap-checkbox-x/v/stable)](https://packagist.org/packages/kartik-v/bootstrap-checkbox-x)
 [![License](https://poser.pugx.org/kartik-v/bootstrap-checkbox-x/license)](https://packagist.org/packages/kartik-v/bootstrap-checkbox-x)
 [![Packagist Downloads](https://poser.pugx.org/kartik-v/bootstrap-checkbox-x/downloads)](https://packagist.org/packages/kartik-v/bootstrap-checkbox-x)
