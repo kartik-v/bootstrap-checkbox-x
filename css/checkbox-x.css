@@ -30,6 +30,13 @@
     position: relative;
 }
 
+.cbx, .cbx-container, .cbx-label {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
 .cbx-label {
     cursor: pointer;
     font-weight: 400;

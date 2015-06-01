@@ -1,3 +1,9 @@
+version 1.5.3
+=============
+**Date**: 01-Jun-2015
+
+- (enh #23): Better styling to prevent block selection for checkbox container & label.
+
 version 1.5.2
 =============
 **Date**: 10-May-2015
