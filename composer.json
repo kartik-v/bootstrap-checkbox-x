@@ -3,7 +3,7 @@
     "description": "An extended checkbox plugin for bootstrap with three states and additional styles.",
     "keywords": ["bootstrap", "checkbox", "jquery", "three", "state", "indeterminate", "null"],
     "homepage": "https://github.com/kartik-v/bootstrap-checkbox-x",
-    "license": "BSD 3-Clause",
+    "license": "BSD-3-Clause",
     "authors": [
         {
             "name": "Kartik Visweswaran",
