@@ -171,7 +171,7 @@
             var self = this,
                 icon = self.getIndicator(),
                 size = self.options.size,
-                tab = self.disabled ? '' : ' tabindex="1000"',
+                tab = self.disabled || !self.options.tabindex ? '' : ' tabindex="' + self.options.tabindex + '"',
                 css = 'cbx cbx-' + size + (self.disabled ? ' cbx-disabled' : ' cbx-active');
             return '<div class="' + css + '"' + tab + '>' + icon + '</div>';
         }
@@ -204,7 +204,8 @@
         iconNull: '<div class="cbx-icon-null"></div>',
         size: 'md',
         enclosedLabel: false,
-        useNative: false
+        useNative: false,
+        tabindex: 1000
     };
 
     $.fn.checkboxX.Constructor = CheckboxX;

@@ -2,6 +2,7 @@ version 1.5.3
 =============
 **Date**: 01-Jun-2015
 
+- (enh #22): New configurable property `tabindex`.
 - (enh #23): Better styling to prevent block selection for checkbox container & label.
 
 version 1.5.2
