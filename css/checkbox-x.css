@@ -10,7 +10,7 @@
 .cbx-loading {
     width: 25px;
     height: 25px;
-    font-size: 0px;
+    font-size: 0;
     color: #fff;
     background: transparent url('../img/loading.gif') top left no-repeat;
     border: none;
@@ -113,11 +113,11 @@ label .cbx {
 }
 
 .has-success .cbx-icon-null {
-    background-color: #66512c;
+    background-color: #2b542c;
 }
 
 .has-warning .cbx-icon-null {
-    background-color: #2b542c;
+    background-color: #66512c;
 }
 
 .cbx-xs .cbx-icon-null {
