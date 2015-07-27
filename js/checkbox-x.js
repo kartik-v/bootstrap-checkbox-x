@@ -20,19 +20,16 @@
     CheckboxX.prototype = {
         constructor: CheckboxX,
         init: function (options) {
-            var self = this, $el = self.$element, isCbx = $el.is(':checkbox'), val = parseInt($el.val()),
+            var self = this, $el = self.$element, isCbx = $el.is(':checkbox'), 
                 css = options.inline ? 'cbx-container' : 'cbx-container cbx-block';
             self.options = options;
-            self.skipChange = false;
-            if (isCbx && val !== 0 && val !== 1) {
-                $el.attr('checked', false);
-                if (options.threeState) {
-                    $el.prop('indeterminate', true);
-                }
+            self.skipTrigger = false;
+            if (isCbx && self.isIndeterminate()) {
+                $el.attr('checked', false).prop('indeterminate', options.threeState);
             }
             if (isCbx && options.useNative) {
                 $el.on('change', function () {
-                    self.change(false);
+                    self.change();
                 });
                 $el.removeClass('cbx-loading');
                 self.setCheckboxProp($el.val());
@@ -56,67 +53,70 @@
             });
             self.$cbx.on('click', function () {
                 if (!isCbx && !options.enclosedLabel) {
-                    self.change(true);
+                    self.change();
                     return;
                 }
                 if (!options.enclosedLabel && !options.useNative) {
-                    if (options.threeState) {
-                        self.change(false);
-                    } else {
-                        self.skipChange = true;
-                        self.change(true);
-                    }
+                    self.change();
+                    self.skipTrigger = !options.threeState;
                 }
-            });
-            self.$cbx.on('keyup', function (e) {
+            }).on('keyup', function (e) {
                 if (e.which === 32) {
-                    self.change(true);
+                    self.change();
                     e.preventDefault();
                 }
             });
             if (isCbx && !options.useNative) {
                 $el.on('change', function () {
-                    self.change(false, self.skipChange);
+                    self.change(true, self.skipTrigger);
                 });
             } else {
                 $el.on('click', function () {
-                    self.change(false);
+                    self.change(true);
                 });
             }
         },
-        change: function (trigChange) {
-            var self = this, $el = self.$element,
-                skipTrig = arguments.length > 1 && arguments[1],
-                useNative = self.options.useNative, newVal;
+        isIndeterminate: function() {
+            var self = this, val = parseInt(self.$element.val());
+            return val !== 0 && val !== 1;
+        },
+        change: function (skipChange, skipTrig) {
+            var self = this, $el = self.$element, newVal,
+                useNative = self.options.useNative,
+                chk = !skipChange && !useNative && !skipTrig;
             if (self.disabled) {
                 return;
             }
-            newVal = self.calculate();
+            newVal = self.getValue();
+            if (!chk) {
+                self.validateCheckbox(newVal);
+            }
             if (!skipTrig) {
                 $el.val(newVal);
             }
-            if (trigChange && !useNative && !skipTrig) {
+            if (chk) {
                 $el.trigger('change');
-            } else {
-                self.validateCheckbox(useNative, newVal);
             }
             if (!useNative) {
                 self.$cbx.html(self.getIndicator());
             }
             if (skipTrig) {
-                self.skipChange = false;
+                self.skipTrigger = false;
             }
         },
-        calculate: function () {
+        getValue: function () {
             var self = this, $el = self.$element, val = parseInt($el.val()),
                 threeState = self.options.threeState;
-            if (threeState) {
-                return (val === 1 ? null : (val === 0 ? 1 : 0));
-            } else {
-                return (val === 1 ? 0 : 1);
+            switch (val) {
+                case 0:
+                    return threeState ? null : 1;
+                case 1:
+                    return 0;
+                default:
+                    return 1;
             }
         },
-        validateCheckbox: function (useNative, newVal) {
+        validateCheckbox: function (newVal) {
             var self = this, $el = self.$element, isCbx = $el.is(':checkbox');
             if (!isCbx) {
                 $el.trigger('change');
@@ -124,15 +124,18 @@
             }
             self.setCheckboxProp(newVal);
         },
-        setCheckboxProp: function (val) {
-            var self = this, $el = self.$element, newVal = parseInt(val);
+        setCheckboxProp: function (newVal) {
+            var self = this, $el = self.$element;
             $el.prop('indeterminate', false).prop('checked', false);
-            if (newVal === 1) {
-                $el.prop('checked', true);
-            } else {
-                if (newVal !== 0) {
+            switch (newVal) {
+                case 0:
+                    break;
+                case 1:
+                    $el.prop('checked', true);
+                    break;
+                default:
                     $el.prop('indeterminate', true);
-                }
+                    break;
             }
         },
         reset: function () {
