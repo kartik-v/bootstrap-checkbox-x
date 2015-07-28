@@ -6,6 +6,7 @@ Change Log: `bootstrap-checkbox-x`
 **Date**: 27-Jul-2015
 
 - (bug #29): Trigger change correctly for threeState input within enclosed label.
+- (enh #30): Enhance validation to change checkbox states based on input type and label enclosure.
 
 ## version 1.5.3
 
