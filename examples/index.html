@@ -25,9 +25,8 @@
         });
     };
     var kvChg = function(ids) {
-        var $el;
         $.each(ids, function(key, id) {
-            $el = $('#' + id);
+            var $el = $('#' + id);
             $el.on('change', function() {
                 var val = $el.val();
                 if (val.length == 0) val = "NULL";
@@ -47,7 +46,7 @@
         <h3>Sizes</h3>
     </div>
     <div class="form-group">
-        <input id="check-1a" value="1" data-toggle="checkbox-x" data-size="xs">
+        <input id="check-1a" value="1" type="text" data-toggle="checkbox-x" data-size="xs">
         <input id="check-2a" value="0" data-toggle="checkbox-x" data-size="xs">
         <input id="check-3a" value="" data-toggle="checkbox-x" data-size="xs">
     </div>
@@ -124,11 +123,13 @@
         
     </div>
     
-    <script>kvChg(['check-1a', 'check-2a', 'check-3a', 'check-1b', 'check-2b', 'check-3b', 
+    <script>$(document).on('ready', function() { 
+        kvChg(['check-1a', 'check-2a', 'check-3a', 'check-1b', 'check-2b', 'check-3b', 
         'check-1c', 'check-2c', 'check-3c', 'check-1d', 'check-2d', 'check-3d', 
         'check-1e', 'check-2e', 'check-3e', 'check-1f', 'check-2f', 'check-3f', 
         'check-1g', 'check-2g', 'check-3g', 'check-1h', 'check-2h', 'check-3h', 
-        'check-1i', 'check-2i', 'check-3i']);</script>
+        'check-1i', 'check-2i', 'check-3i']);
+    });</script>
     <div class="page-header">
         <h3>Enclosed Label (Native 2 state)</h3>
     </div>
@@ -284,12 +285,44 @@
     </div>
     <div class="row">
         <div class="col-sm-3">
-            <label for="test-kv-202">Kartik <input id="test-kv-202" type="text" /></label>
+            <label for="test-kv-202">Kartik</label> <input id="test-kv-202" type="text" />
         </div>
         <div class="col-sm-4">
            <div class="alert alert-info">Value: <code id="kv-202"></code></div>
         </div>
     </div>
    <script>kvInit('kv-202', {});</script>
+   
+    <div class="page-header">
+        <h3>Plugin Methods</h3>
+    </div>
+    <div class="form-group">
+        <div class="checkbox">
+            <label for="check-301"><input id="check-301" type="checkbox" value="1"> Check me out</label>
+        </div>
+        <hr>
+        <button type="button" class="btn btn-danger btn-destroy">Destroy</button>
+        <button type="button" class="btn btn-success btn-recreate">Recreate</button>
+    </div>
+    <script>
+        $(document).on('ready', function() {
+            var $el = $("#check-301"), kvInitCbx = function() {
+                $el.checkboxX({
+                    enclosedLabel: true
+                });
+            };
+            kvInitCbx();
+            $('.btn-destroy').on('click', function() {
+                if ($el.data('checkboxX')) {
+                    $el.checkboxX('destroy');
+                }
+            });
+            $('.btn-recreate').on('click', function() {
+                if (!$el.data('checkboxX')) {
+                    kvInitCbx();
+                }
+            });
+        });
+    </script>
 </div>
 </div>

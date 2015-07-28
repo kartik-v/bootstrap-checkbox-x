@@ -149,17 +149,17 @@ This event is triggered on the input element, when the checkbox control is modif
 **Example:**
 ```js
 $('#input-id').on('change', function() {
-    console.log('checkbox changed');
+    console.log('change triggered');
 });
 ```
 
-#### checkbox.reset
+#### reset.checkbox
 This event is triggered when the checkbox control is reset to initial value using the `reset` method or by resetting the form.
 
 **Example:**
 ```js
-$('#input-id').on('checkbox.reset', function(event) {
-    console.log("reset");
+$('#input-id').on('reset.checkbox', function(event) {
+    console.log("reset.checkbox triggered");
 });
 ```
 
@@ -180,6 +180,13 @@ $('#input-id').checkboxX('refresh', {size: 'xl'});
 Reset the checkbox control.
 ```js
 $('#input-id').checkboxX('reset');
+```
+
+#### destroy
+Use this method to destroy the plugin and revert back the native input to original state.
+
+```js
+$('#input-id').checkboxX('destroy');
 ```
 
 ## License

@@ -23,14 +23,14 @@
             var self = this, $el = self.$element, isCbx = $el.is(':checkbox'), val = parseInt($el.val()),
                 css = options.inline ? 'cbx-container' : 'cbx-container cbx-block';
             self.options = options;
+            self.clearEvents();
             if (isCbx && val !== 0 && val !== 1) {
                 $el.attr('checked', false).prop('indeterminate', options.threeState);
             }
             if (isCbx && options.useNative) {
-                $el.on('change', function () {
+                $el.on('change.checkbox', function () {
                     self.change();
-                });
-                $el.removeClass('cbx-loading');
+                }).removeClass('cbx-loading');
                 self.setCheckboxProp($el.val());
                 return;
             }
@@ -44,26 +44,30 @@
             }
             $el.removeClass('cbx-loading');
             self.$cbx = self.$container.find('.cbx');
-            $el.closest('form').on('reset', function () {
+            $el.closest('form').off('reset.checkbox').on('reset.checkbox', function () {
                 self.reset();
             });
-            self.$cbx.on('click', function () {
+            self.$cbx.off('click.checkbox').on('click.checkbox', function () {
                 if (isCbx && !options.enclosedLabel && !options.useNative && !self.disabled) {
                     $el.trigger('change');
+                    return;
                 }
-            }).on('keyup', function (e) {
+                if (!isCbx && !self.enclosedLabel) {
+                     self.change();
+                }
+            }).on('keyup.checkbox', function (e) {
                 if (e.which === 32) {
                     self.change();
                     e.preventDefault();
                 }
             });
             if (isCbx && !options.useNative) {
-                $el.on('change', function () {
+                $el.on('change.checkbox', function () {
                     self.change();
                 });
             } else {
                 if (!isCbx) {
-                    $el.on('click', function () {
+                    $el.on('click.checkbox', function () {
                         self.change();
                     });
                 }
@@ -82,8 +86,8 @@
             }
         },
         getValue: function () {
-            var self = this;
-            switch (parseInt(self.$element.val())) {
+            var self = this, val = parseInt(self.$element.val());
+            switch (val) {
                 case 0:
                     return self.options.threeState ? null : 1;
                 case 1:
@@ -91,14 +95,6 @@
                 default:
                     return 1;
             }
-        },
-        validateCheckbox: function (newVal) {
-            var self = this, $el = self.$element, isCbx = $el.is(':checkbox');
-            if (!isCbx) {
-                $el.trigger('change');
-                return;
-            }
-            self.setCheckboxProp(newVal);
         },
         setCheckboxProp: function (newVal) {
             var self = this, $el = self.$element;
@@ -114,18 +110,39 @@
                     break;
             }
         },
+        validateCheckbox: function (newVal) {
+            var self = this, $el = self.$element, isCbx = $el.is(':checkbox');
+            if (!isCbx) {
+                $el.trigger('change');
+                return;
+            }
+            self.setCheckboxProp(newVal);
+        },
         reset: function () {
             var self = this, $el = self.$element;
             $el.val(self.initialValue);
             self.refresh();
-            $el.trigger('checkbox.reset');
+            $el.trigger('reset.checkbox');
+        },
+        clearEvents: function () {
+            var self = this, $el = self.$element, 
+                $cbx = self.$container ? self.$container.find('.cbx') : null;
+            $el.off('.checkbox').closest('form').off('.checkbox');
+            if ($cbx) {
+                $cbx.off('.checkbox');
+            }
+        },
+        destroy: function () {
+            var self = this, $el = self.$element;
+            self.clearEvents();
+            self.$container.before($el).remove();
+            $el.removeData().show();
         },
         refresh: function (options) {
             var self = this;
-            if (arguments.length) {
+            if (options) {
                 self.init($.extend(self.options, options));
-            }
-            else {
+            } else {
                 self.disabled = self.$element.attr('disabled') || self.$element.attr('readonly');
                 self.init(self.options);
             }
@@ -158,15 +175,16 @@
 
     $.fn.checkboxX = function (option) {
         var args = Array.apply(null, arguments);
-        args.shift();
+        args.shift();        
         return this.each(function () {
-            var $this = $(this),
+            var $this = $(this), defaults,
                 data = $this.data('checkboxX'),
                 options = typeof option === 'object' && option;
 
             if (!data) {
-                $this.data('checkboxX',
-                    (data = new CheckboxX(this, $.extend({}, $.fn.checkboxX.defaults, options, $(this).data()))));
+                defaults = $.extend({}, $.fn.checkboxX.defaults);
+                data = new CheckboxX(this, $.extend(defaults, options, $this.data()));
+                $this.data('checkboxX', data);
             }
 
             if (typeof option === 'string') {
