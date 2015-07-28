@@ -111,21 +111,21 @@ Alternatively, you can directly call the plugin options by setting data attribut
 ### Plugin Options
 The plugin supports these following options:
 
-##### threeState
+#### threeState
 _boolean_, whether to use three states for the checkbox. This will allow you to save `null` values, in addition to the built in `1` and `0` values.
 Defaults to `true`. If set to `false`, it will allow only the default two values: `1` and `0`.
 
-##### inline
+#### inline
 _boolean_, whether the checkboxes are to be styled in an inline-block with other elements placed before or after. Defaults to `true`. 
 If set to `false`, checkboxes will be displayed as a block (like in checkbox lists).
 
-##### iconChecked
+#### iconChecked
 _string_, the html markup for the glyph / icon to be displayed when the checkbox is checked. Defaults to `<i class="glyphicon glyphicon-ok"></i>`.
 
-##### iconUnchecked
+#### iconUnchecked
 _string_, the html markup for the glyph / icon to be displayed when the checkbox is unchecked. Defaults to a blank character ` `.
 
-##### iconNull
+#### iconNull
 _string_, the html markup for the glyph / icon to be displayed when the checkbox is null. Defaults to `<div class="cbx-icon-null"></div>`.
 
 #### size
