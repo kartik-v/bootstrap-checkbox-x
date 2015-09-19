@@ -9,6 +9,7 @@ Change Log: `bootstrap-checkbox-x`
 - (enh #30): Enhance validation to change checkbox states based on input type and label enclosure.
 - (enh #31): Enhance events and implement event namespace `.checkbox`.
 - (enh #32): Implement `destroy` method.
+- Better bootstrap version dependency.
 
 ## version 1.5.3
 
