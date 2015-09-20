@@ -10,6 +10,9 @@ Change Log: `bootstrap-checkbox-x`
 - (enh #31): Enhance events and implement event namespace `.checkbox`.
 - (enh #32): Implement `destroy` method.
 - Better bootstrap version dependency.
+- (enh #34): Enhancements to support Select Input.
+- (enh #35): Configurable values for checked, unchecked and null.
+- (enh #36): Include ability to configure themes for styling.
 
 ## version 1.5.3
 
