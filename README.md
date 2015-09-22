@@ -116,7 +116,7 @@ Alternatively, you can directly call the plugin options by setting data attribut
 The plugin supports these following options:
 
 #### theme
-_string_, the name of the theme to be used. This will automatically append the `cbx-themeName` CSS class to the checkbox container and can be used for overriding the styles. Defaults to empty string. The plugin includes an additional theme named `krajee-flat`. The CSS for this theme file is included in `theme-krajee-flatblue.css` in the CSS folder. If you set theme to `krajee-flatblue`, the CSS class `cbx-krajee-flatblue` will automatically be appended to the checkbox container. Note that the theme CSS file must be loaded after `checkbox-x.css` on the page. 
+_string_, the name of the theme to be used. This will automatically append the `cbx-themeName` CSS class to the checkbox container and can be used for overriding the styles. Defaults to empty string. The plugin includes an additional theme named `krajee-flatblue`. The CSS for this theme file is included in `theme-krajee-flatblue.css` in the CSS folder. If you set theme to `krajee-flatblue`, the CSS class `cbx-krajee-flatblue` will automatically be appended to the checkbox container. Note that the theme CSS file must be loaded after `checkbox-x.css` on the page. 
 
 #### threeState
 _boolean_, whether to use three states for the checkbox. This will allow you to save `null` values, in addition to the built in `1` and `0` values.
