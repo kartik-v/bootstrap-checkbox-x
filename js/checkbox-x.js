@@ -21,7 +21,7 @@
         constructor: CheckboxX,
         init: function (options) {
             var self = this, $el = self.$element, isCbx = $el.is(':checkbox'), isSelect = $el.is('select'), 
-                isText = !isCbx && !isSelect, val = parseInt($el.val()),
+                isText = !isCbx && !isSelect, val = $el.val(),
                 enclosedSelect = isSelect && !options.enclosedLabel,
                 css = options.inline ? 'cbx-container' : 'cbx-container cbx-block';
             if (options.theme) {
@@ -97,7 +97,7 @@
             }
         },
         getValue: function () {
-            var self = this, val = parseInt(self.$element.val()), options = self.options;
+            var self = this, val = self.$element.val(), options = self.options;
             switch (val) {
                 case options.valueUnchecked:
                     return self.options.threeState ? options.valueNull : options.valueChecked;
@@ -168,7 +168,7 @@
             var self = this,
                 options = self.options,
                 icon = options.iconUnchecked,
-                val = parseInt(self.$element.val());
+                val = self.$element.val();
             if (val === options.valueChecked) {
                 icon = options.iconChecked;
             }
@@ -216,8 +216,8 @@
         iconChecked: '<i class="glyphicon glyphicon-ok"></i>',
         iconUnchecked: ' ',
         iconNull: '<div class="cbx-icon-null"></div>',
-        valueChecked: 1,
-        valueUnchecked: 0,
+        valueChecked: "1",
+        valueUnchecked: "0",
         valueNull: null,
         size: 'md',
         enclosedLabel: false,
