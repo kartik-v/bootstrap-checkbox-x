@@ -21,7 +21,7 @@
         constructor: CheckboxX,
         init: function (options) {
             var self = this, $el = self.$element, isCbx = $el.is(':checkbox'), isSelect = $el.is('select'), 
-                isText = !isCbx && !isSelect, val = parseInt($el.val()),
+                isText = !isCbx && !isSelect, val = $el.val(),
                 enclosedSelect = isSelect && !options.enclosedLabel,
                 css = options.inline ? 'cbx-container' : 'cbx-container cbx-block';
             if (options.theme) {
@@ -30,20 +30,23 @@
             self.options = options;
             self.clearEvents();
             if (isCbx && val !== options.valueUnchecked && val !== options.valueChecked) {
-                $el.attr('checked', false).prop('indeterminate', options.threeState);
+                $el.prop('checked', false).prop('indeterminate', options.threeState);
             }
             if (isCbx && options.useNative) {
                 $el.on('change.checkbox', function () {
                     self.change();
                 }).removeClass('cbx-loading');
                 if (options.threeState) {
-                    if (!$el.attr('checked')  && $el.val() !== options.valueChecked && $el.val() !== options.valueUnchecked) {
+                    if (!$el.prop('checked')  && $el.val() !== options.valueChecked && $el.val() !== options.valueUnchecked) {
                         $el.prop('indeterminate', true);
                     } else {
                         $el.prop('indeterminate', false);
                     }
                 }
                 return;
+            }
+            if (isCbx && !$el.prop('checked')) {
+                $el.val(self.valueUnchecked);
             }
             if (self.$container === undefined) {
                 self.$container = $(document.createElement("div")).addClass(css).html(self.render());
@@ -97,7 +100,7 @@
             }
         },
         getValue: function () {
-            var self = this, val = parseInt(self.$element.val()), options = self.options;
+            var self = this, val = self.$element.val(), options = self.options;
             switch (val) {
                 case options.valueUnchecked:
                     return self.options.threeState ? options.valueNull : options.valueChecked;
@@ -168,7 +171,7 @@
             var self = this,
                 options = self.options,
                 icon = options.iconUnchecked,
-                val = parseInt(self.$element.val());
+                val = self.$element.val();
             if (val === options.valueChecked) {
                 icon = options.iconChecked;
             }
@@ -193,13 +196,12 @@
         var args = Array.apply(null, arguments);
         args.shift();        
         return this.each(function () {
-            var $this = $(this), defaults,
+            var $this = $(this),
                 data = $this.data('checkboxX'),
                 options = typeof option === 'object' && option;
 
             if (!data) {
-                defaults = $.extend({}, $.fn.checkboxX.defaults);
-                data = new CheckboxX(this, $.extend(defaults, options, $this.data()));
+                data = new CheckboxX(this, $.extend(true, {}, $.fn.checkboxX.defaults, options, $this.data()));
                 $this.data('checkboxX', data);
             }
 
@@ -216,8 +218,8 @@
         iconChecked: '<i class="glyphicon glyphicon-ok"></i>',
         iconUnchecked: ' ',
         iconNull: '<div class="cbx-icon-null"></div>',
-        valueChecked: 1,
-        valueUnchecked: 0,
+        valueChecked: '1',
+        valueUnchecked: '0',
         valueNull: null,
         size: 'md',
         enclosedLabel: false,

@@ -1,6 +1,12 @@
 Change Log: `bootstrap-checkbox-x`
 ==================================
 
+## version 1.5.5 (under development)
+
+- enh #38, #41: Use string values instead of integers.
+- enh #42: Display initial value correctly when initializing with checkbox
+
+
 ## version 1.5.4
 
 **Date**: 19-Sep-2015
