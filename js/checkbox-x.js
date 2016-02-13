@@ -1,6 +1,6 @@
 /*!
- * @copyright &copy; Kartik Visweswaran, Krajee.com, 2014 - 2015
- * @version 1.5.4
+ * @copyright &copy; Kartik Visweswaran, Krajee.com, 2014 - 2016
+ * @version 1.5.5
  *
  * An extended checkbox plugin for bootstrap with three states and additional styles.
  *
@@ -44,7 +44,7 @@
             $el.closest('form').on('reset.checkbox', function () {
                 self.reset();
             });
-            self.$cbx.off('click.checkbox').on('click.checkbox', function () {
+            self.$cbx.off('click.checkbox keyup.checkbox').on('click.checkbox', function () {
                 if (isCbx && !options.enclosedLabel && !options.useNative && !self.disabled) {
                     $el.trigger('change');
                     return;
@@ -58,16 +58,10 @@
                     e.preventDefault();
                 }
             });
-            if (isCbx && !options.useNative) {
-                $el.on('change.checkbox', function () {
+            if (isText || isSelect) {
+                $el.on('click.checkbox', function () {
                     self.change();
                 });
-            } else {
-                if (isText || isSelect) {
-                    $el.on('click.checkbox', function () {
-                        self.change();
-                    });
-                }
             }
         },
         initCheckbox: function() {
@@ -77,7 +71,7 @@
             if (!$el.is(':checkbox')) {
                 return true;
             }
-            if (val !== options.valueUnchecked && val !== options.valueChecked) {
+            if (isInd) {
                 $el.prop('checked', false).prop('indeterminate', hasThreeVal);
             }
             if (!$el.prop('checked')) {
@@ -87,16 +81,13 @@
                     $el.val(self.valueUnchecked);
                 }
             }
+            $el.on('change.checkbox', function () {
+                self.change();
+            });
             if (options.useNative) {
-                $el.on('change.checkbox', function () {
-                    self.change();
-                }).removeClass('cbx-loading');
+                $el.removeClass('cbx-loading');
                 if (hasThreeVal) {
-                    if (!$el.prop('checked') && isInd) {
-                        $el.prop('indeterminate', true);
-                    } else {
-                        $el.prop('indeterminate', false);
-                    }
+                    $el.prop('indeterminate', !!(!$el.prop('checked') && isInd));
                 }
                 return false;
             }
@@ -127,10 +118,7 @@
         },
         setCheckboxProp: function (newVal) {
             var self = this, $el = self.$element, options = self.options;
-            if (options.threeState) {
-                $el.prop('indeterminate', false);
-            }
-            $el.prop('checked', false);
+            $el.prop('indeterminate', false).prop('checked', false);
             switch (newVal) {
                 case options.valueChecked:
                     $el.prop('checked', true);
@@ -153,8 +141,7 @@
             self.setCheckboxProp(newVal);
         },
         clearEvents: function () {
-            var self = this, $el = self.$element, 
-                $cbx = self.$container ? self.$container.find('.cbx') : null;
+            var self = this, $el = self.$element, $cbx = self.$container ? self.$container.find('.cbx') : null;
             $el.off('.checkbox');
             if ($cbx) {
                 $cbx.off('.checkbox');
@@ -202,12 +189,10 @@
         args.shift();        
         this.each(function () {
             var $this = $(this), data = $this.data('checkboxX'), options = typeof option === 'object' && option;
-
             if (!data) {
                 data = new CheckboxX(this, $.extend(true, {}, $.fn.checkboxX.defaults, options, $this.data()));
                 $this.data('checkboxX', data);
             }
-
             if (typeof option === 'string') {
                 retvals.push(data[option].apply(data, args));
             }

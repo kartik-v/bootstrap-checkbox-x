@@ -10,9 +10,9 @@ bootstrap-checkbox-x
 
 An extended checkbox plugin for Bootstrap built using JQuery, which allows three checkbox states and includes additional styles. The plugin uses Bootstrap markup and CSS 3 styling by default, but it can be overridden with any other CSS markup. It also helps you to fallback to a native checkbox OR display native checkboxes with tristate capability. 
 
-With v1.5.4, the plugin now supports initializing widget on a SELECT input as well (other than a CHECKBOX or TEXT input).
+With v1.5.5, the plugin now supports initializing widget on a SELECT input as well (other than a CHECKBOX or TEXT input).
 
-> NOTE: The checkbox plugin stores the values by default as integer format (and not boolean format) for checked and unchecked states. This can be overridden by setting `valueChecked`, `valueUnchecked` and `valueNull` properties.
+> NOTE: The checkbox plugin stores the values by default as character format (and not boolean format) for checked and unchecked states. This can be overridden by setting `valueChecked`, `valueUnchecked` and `valueNull` properties.
 
 ## Features  
 
@@ -33,9 +33,10 @@ With v1.5.4, the plugin now supports initializing widget on a SELECT input as we
 10. Triggers JQuery events for advanced development. The plugin automatically triggers the `change` event for the input, whenever the checkbox value is changed via clicking. Events currently available are `change` and  `checkbox.reset`.
 11. Ability to access methods and refresh the input dynamically via javascript at runtime.
 12. Disabled and readonly checkbox input support.
-13. Added support for displaying native checkboxes with tristate capability. When displaying native checkboxes, the advanced styling offerred by the plugin will not be available.
+13. Allow third state to be configured (only on init) for two state checkboxes.
+14. Added support for displaying native checkboxes with tristate capability. When displaying native checkboxes, the advanced styling offerred by the plugin will not be available.
 
-> NOTE: The latest version of the plugin v1.5.4 has been released. Refer the [CHANGE LOG](https://github.com/kartik-v/bootstrap-checkbox-x/blob/master/CHANGE.md) for details.
+> NOTE: The latest version of the plugin v1.5.5 has been released. Refer the [CHANGE LOG](https://github.com/kartik-v/bootstrap-checkbox-x/blob/master/CHANGE.md) for details.
 
 ## Documentation and Demo
 
@@ -74,7 +75,7 @@ You can also manually install the plugin easily to your project. Just download t
 Step 1: Load the following assets in your header. 
 
 ```html
-<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
 <link href="path/to/css/checkbox-x.min.css" media="all" rel="stylesheet" type="text/css" />
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 <script src="path/to/js/checkbox-x.min.js" type="text/javascript"></script>
