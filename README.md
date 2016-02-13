@@ -18,9 +18,9 @@ With v1.5.5, the plugin now supports initializing widget on a SELECT input as we
 
 1. Enhances any HTML input (preferrably a checkbox or text input) with `data-toggle=checkbox-x` to an extended checkbox control. 
 2. The plugin offers the following three states and values for the checkboxes:
-   - `1`: Checkbox is checked. This value is configurable through `valueChecked` property.
-   - `0`: Checkbox is unchecked. This value is configurable through `valueUnchecked` property.
-   - `null`: Checkbox is indeterminate. This value is configurable through `valueNull` property.
+   - `'1'`: Checkbox is checked. This value is configurable through `valueChecked` property.
+   - `'0'`: Checkbox is unchecked. This value is configurable through `valueUnchecked` property.
+   - `''`: Checkbox is indeterminate. This value is configurable through `valueNull` property.
 3. You can set the plugin to allow **three states** or the default **two states** for the checkbox.
 4. Specifically uses Bootstrap 3.x styles & glyphs. One can configure the checked, unchecked, and indeterminate icons to be shown for the checkboxes.
 5. Special CSS 3 styling, to enhance the control to look like any Bootstrap 3 form control. Supports the `has-error`, `has-success`, `has-warning`
@@ -47,6 +47,8 @@ View the [plugin documentation](http://plugins.krajee.com/checkbox-x) and [plugi
 1. [Bootstrap 3.x](http://getbootstrap.com/)
 2. Latest [JQuery](http://jquery.com/)
 3. Most browsers supporting CSS3 & JQuery. 
+
+> NOTE: You can use the sass branch for installation using bootstrap-sass dependency. The master branch can be used for installation using the default official bootstrap dependency.
 
 ## Installation
 
