@@ -6,7 +6,7 @@ Change Log: `bootstrap-checkbox-x`
 - enh #38, #41: Use string values instead of integers.
 - enh #39: New property `allowThreeValOnInit` for showing third state on init for two state checkboxes.
 - enh #42: Display initial value correctly when initializing with checkbox
-- enh #43: Add support for `bootstrap-sass` via new `sass` branch.
+- enh #43: Add support for `bootstrap-sass` through new `sass` branch.
 
 ## version 1.5.4
 
