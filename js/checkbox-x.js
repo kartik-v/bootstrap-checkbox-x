@@ -50,7 +50,7 @@
                     return;
                 }
                 if (isText && !options.enclosedLabel || enclosedSelect) {
-                     self.change();
+                    self.change();
                 }
             }).on('keyup.checkbox', function (e) {
                 if (e.which === 32) {
@@ -64,31 +64,20 @@
                 });
             }
         },
-        initCheckbox: function() {
-            var self = this, $el = self.$element, val = $el.val().toString(), options = self.options,
-                isInd = val !== options.valueChecked && val !== options.valueUnchecked,
-                hasThreeVal = options.allowThreeValOnInit || options.threeState;
+        initCheckbox: function () {
+            var self = this, $el = self.$element, val, options = self.options;
             if (!$el.is(':checkbox')) {
                 return true;
             }
-            if (isInd) {
-                $el.prop('checked', false).prop('indeterminate', hasThreeVal);
-            }
             if (!$el.prop('checked')) {
-                if (isInd && hasThreeVal) {
-                    $el.val(self.valueNull);
-                } else {
-                    $el.val(self.valueUnchecked);
-                }
+                val = $el.prop('indeterminate') ? options.valueNull : options.valueUnchecked;
+                $el.val(val);
             }
             $el.on('change.checkbox', function () {
                 self.change();
             });
             if (options.useNative) {
                 $el.removeClass('cbx-loading');
-                if (hasThreeVal) {
-                    $el.prop('indeterminate', !!(!$el.prop('checked') && isInd));
-                }
                 return false;
             }
             return true;
@@ -170,8 +159,9 @@
             self.initialValue = self.$element.val();
         },
         getIndicator: function (hasThreeState) {
-            var self = this, options = self.options, icon = options.iconUnchecked, val = self.$element.val(),
-                isInd = val !== options.valueUnchecked && (self.options.threeState || hasThreeState);
+            var self = this, options = self.options, icon = options.iconUnchecked, $el = self.$element, val = $el.val(),
+                isInd = $el.is(':checkbox') ? $el.prop('indeterminate') :
+                    (val !== options.valueUnchecked && (self.options.threeState || hasThreeState));
             return '<span class="cbx-icon">' +
                 (val === options.valueChecked ? options.iconChecked : (isInd ? options.iconNull : icon)) +
                 '</span>';
@@ -186,7 +176,7 @@
 
     $.fn.checkboxX = function (option) {
         var args = Array.apply(null, arguments), retvals = [];
-        args.shift();        
+        args.shift();
         this.each(function () {
             var $this = $(this), data = $this.data('checkboxX'), options = typeof option === 'object' && option;
             if (!data) {

@@ -16,6 +16,9 @@
             var $el = $("#test-" + id), $ind =  $('#' + id), val = $el.val();
             if (val.length == 0) val = "NULL";
             $ind.html(val);
+            if (id == 'kv-99a') {
+                $el.prop('indeterminate', true);
+            }
             $el.checkboxX(options);
             $el.on('change', function() {
                 var val = $el.val();
@@ -215,6 +218,19 @@
         </div>
     </div>
     <script>kvInit('kv-100', {threeState: false});</script>
+
+    <div class="page-header">
+        <h3>Special Enclosed Label (2 state)</h3>
+    </div>
+    <div class="row">
+        <div class="col-sm-3">
+            <label class="cbx-label" for="test-kv-99a">Wish Kartik? <input id="test-kv-99a" type="checkbox" /></label>
+        </div>
+        <div class="col-sm-4">
+            <div class="alert alert-info">Value: <code id="kv-99a"></code></div>
+        </div>
+    </div>
+    <script>kvInit('kv-99a', {threeState: false, enclosedLabel: true, allowThreeValOnInit: true});</script>
     
     <div class="page-header">
        <h3>Enclosed Label (3 state)</h3>
