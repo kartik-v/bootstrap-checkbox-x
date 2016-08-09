@@ -7,10 +7,8 @@
     "bugs": {
         "url": "https://github.com/kartik-v/bootstrap-checkbox-x/issues"
     },
-    "main": [
-        "./css/checkbox-x.min.css",
-        "./js/checkbox-x.min.js"
-    ],
+    "style": "./css/checkbox-x.min.css",
+    "main": "./js/checkbox-x.js",
     "keywords": [
         "bootstrap",
         "checkbox",
