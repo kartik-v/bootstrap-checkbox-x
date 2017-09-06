@@ -1,5 +1,5 @@
 /*!
- * @copyright &copy; Kartik Visweswaran, Krajee.com, 2014 - 2016
+ * @copyright &copy; Kartik Visweswaran, Krajee.com, 2014 - 2017
  * @version 1.5.5
  *
  * An extended checkbox plugin for bootstrap with three states and additional styles.
@@ -146,7 +146,7 @@
             var self = this, $el = self.$element;
             $el.val(self.initialValue);
             self.refresh();
-            $el.trigger('resetinput.checkbox');
+            $el.trigger('checkbox:resetinput');
         },
         refresh: function (options) {
             var self = this;
