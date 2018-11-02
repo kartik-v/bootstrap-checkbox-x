@@ -1,7 +1,9 @@
 Change Log: `bootstrap-checkbox-x`
 ==================================
 
-## version 1.5.5
+## Version 1.5.5
+
+**Date**: 02-Nov-2018
 
 - Add github contribution and issue/PR log templates.
 - enh #53: Rename events to start with `checkbox:` instead of ending with `.checkbox` .
@@ -11,7 +13,7 @@ Change Log: `bootstrap-checkbox-x`
 - enh #39: New property `allowThreeValOnInit` for showing third state on init for two state checkboxes.
 - enh #38, #41: Use string values instead of integers.
 
-## version 1.5.4
+## Version 1.5.4
 
 **Date**: 19-Sep-2015
 
@@ -24,7 +26,7 @@ Change Log: `bootstrap-checkbox-x`
 - (enh #30): Enhance validation to change checkbox states based on input type and label enclosure.
 - (bug #29): Trigger change correctly for threeState input within enclosed label.
 
-## version 1.5.3
+## Version 1.5.3
 
 **Date**: 18-Jun-2015
 
@@ -32,7 +34,7 @@ Change Log: `bootstrap-checkbox-x`
 - (enh #23): Better styling to prevent block selection for checkbox container & label.
 - (enh #22): New configurable property `tabindex`.
 
-## version 1.5.2
+## Version 1.5.2
 
 **Date**: 10-May-2015
 
@@ -43,14 +45,14 @@ Change Log: `bootstrap-checkbox-x`
 - (enh #16): Styling enhancements for native checkbox to be compatible with Bootstrap v3.3.2+.
 - (bug #15): Fix init issues when checkboxX is initialized on non-checkbox input (e.g. text).
 
-## version 1.5.1
+## Version 1.5.1
 
 **Date**: 31-Jan-2015
 
 - (enh #14): Implement reusable constructor for extending plugin if needed.
 - (enh #13): Code restructure and formatting to cleanup various lint errors (using JSHint Code cleanup library).
 
-## version 1.5.0
+## Version 1.5.0
 
 **Date**: 28-Dec-2014
 
@@ -61,33 +63,33 @@ Change Log: `bootstrap-checkbox-x`
        - Non-enclosed labels (native)
        - Enclosed labels (native)
 
-## version 1.4.0
+## Version 1.4.0
 
 **Date**: 08-Nov-2014
 
 - Updated CHANGE log to reflect user friendly date time formats.
 
-## version 1.3.0
+## Version 1.3.0
 
 **Date:** 16-Oct-2014
 
 - (enh #5): Add styling for labels similar to bootstrap
 - (enh #4): Add support for using native tristate checkboxes
 
-## version 1.2.0
+## Version 1.2.0
 
 **Date:** 15-Oct-2014
 
 - (bug #3): Added `enclosedLabel` property for correct toggling of checkboxes enclosed inside labels.
 - Removed `labelClickEvent` property.
 
-## version 1.1.0
+## Version 1.1.0
 
 **Date:** 10-Oct-2014
 
 - (enh #2): Add `labelClickEvent` property for controlling triggering change event on label click.
 
-## version 1.0.0
+## Version 1.0.0
 
 **Date:** 12-Jun-2014
 
