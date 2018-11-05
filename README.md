@@ -1,5 +1,15 @@
-bootstrap-checkbox-x
-=====================
+<h1 align="center">
+    <a href="http://plugins.krajee.com" title="Krajee Plugins" target="_blank">
+        <img src="http://kartik-v.github.io/bootstrap-fileinput-samples/samples/krajee-logo-b.png" alt="Krajee Logo"/>
+    </a>
+    <br>
+    bootstrap-checkbox-x
+    <hr>
+    <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=DTP3NZQ6G2AYU"
+       title="Donate via Paypal" target="_blank">
+        <img src="http://kartik-v.github.io/bootstrap-fileinput-samples/samples/donate.png" alt="Donate"/>
+    </a>
+</h1>
 
 [![Bower version](https://badge.fury.io/bo/bootstrap-checkbox-x.svg)](http://badge.fury.io/bo/bootstrap-checkbox-x)
 [![Stable Version](https://poser.pugx.org/kartik-v/bootstrap-checkbox-x/v/stable)](https://packagist.org/packages/kartik-v/bootstrap-checkbox-x)
