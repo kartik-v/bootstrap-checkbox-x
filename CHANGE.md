@@ -1,6 +1,12 @@
 Change Log: `bootstrap-checkbox-x`
 ==================================
 
+## Version 1.5.6
+
+**Date**: 19-May-2021
+
+- Update CDN version to use jsdelivr.
+
 ## Version 1.5.5
 
 **Date**: 02-Nov-2018

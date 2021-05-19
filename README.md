@@ -46,7 +46,7 @@ With v1.5.5, the plugin now supports initializing widget on a SELECT input as we
 13. Allow third state to be configured (only on init) for two state checkboxes.
 14. Added support for displaying native checkboxes with tristate capability. When displaying native checkboxes, the advanced styling offerred by the plugin will not be available.
 
-> NOTE: The latest version of the plugin v1.5.5 has been released. Refer the [CHANGE LOG](https://github.com/kartik-v/bootstrap-checkbox-x/blob/master/CHANGE.md) for details.
+> NOTE: The latest version of the plugin v1.5.6 has been released. Refer the [CHANGE LOG](https://github.com/kartik-v/bootstrap-checkbox-x/blob/master/CHANGE.md) for details.
 
 ## Documentation and Demo
 
@@ -87,12 +87,12 @@ You can also manually install the plugin easily to your project. Just download t
 Step 1: Load the following assets in your header. 
 
 ```html
-<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
-<link href="path/to/css/checkbox-x.min.css" media="all" rel="stylesheet" type="text/css" />
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-<script src="path/to/js/checkbox-x.min.js" type="text/javascript"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
+<link href="https://cdn.jsdelivr.net/gh/kartik-v/bootstrap-checkbox-x@1.5.6/css/checkbox-x.min.css" media="all" rel="stylesheet" type="text/css" />
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/kartik-v/bootstrap-checkbox-x@1.5.6/js/checkbox-x.min.js"></script>
 <!-- optional if you are using themes -->
-<link href="path/to/css/theme-krajee-flatblue.min.css" media="all" rel="stylesheet" type="text/css" />
+<link href="https://cdn.jsdelivr.net/gh/kartik-v/bootstrap-checkbox-x@1.5.6/css/theme-krajee-flatblue.min.css" media="all" rel="stylesheet" type="text/css" />
 ```
 
 If you noticed, you need to load the `jquery.min.js` and `bootstrap.min.css` in addition to the `checkbox-x.min.css` and `checkbox-x.min.js` for
