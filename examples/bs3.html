@@ -1,0 +1,804 @@
+<!--
+* @copyright &copy; Kartik Visweswaran, Krajee.com, 2014 - 2021
+* @version 1.5.7
+*
+* An extended checkbox plugin for bootstrap with three states and additional styles.
+*
+* For more JQuery/Bootstrap plugins and demos visit http://plugins.krajee.com
+* For more Yii related demos visit http://demos.krajee.com
+-->
+<!DOCTYPE html>
+<!--suppress JSUnresolvedLibraryURL -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Krajee JQuery Plugins - &copy; Kartik </title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link href="../css/checkbox-x.css" media="all" rel="stylesheet" type="text/css"/>
+    <link href="../css/theme-krajee-flatblue.css" media="all" rel="stylesheet" type="text/css"/>
+    <script src="../js/checkbox-x.js" type="text/javascript"></script>
+    <script>
+        var kvInit = function (id, options) {
+            $(document).ready(function () {
+                var $el = $("#test-" + id), $ind = $('#' + id), val = $el.val();
+                if (val.length === 0) val = "NULL";
+                $ind.html(val);
+                if (id === 'kv-99a') {
+                    $el.prop('indeterminate', true);
+                }
+                $el.checkboxX(options);
+                $el.on('change', function () {
+                    var val = $el.val();
+                    if (val.length === 0) val = "NULL";
+                    $ind.html(val);
+                    console.log("Fired change for input id = 'test-" + id + "' with val = '" + val + "'");
+                });
+            });
+        };
+        var kvChg = function (ids) {
+            $.each(ids, function (key, id) {
+                var $el = $('#' + id);
+                $el.on('change', function () {
+                    var val = $el.val();
+                    if (val.length === 0) val = "NULL";
+                    console.log("Fired change for input id = 'test-" + id + "' with val = '" + val + "'");
+                });
+            });
+        };
+    </script>
+    <style>
+        .m-5 {
+            margin: 6rem;
+        }
+        .mb-3 {
+            margin-bottom: 2rem;
+        }
+        .mt-5 {
+            margin-top: 6rem;
+        }
+    </style>
+</head>
+<body>
+<div class="m-5">
+    <div style="border-radius:10px; padding: 30px; padding-top: 10px; border:5px ridge #ddd">
+        <h1><a class="text-decoration-none" href="http://plugins.krajee.com/checkbox-x">Bootstrap Checkbox X
+            Examples</a>
+            <small><span class="badge badge-info bg-info">BS3.x</span> &copy; Krajee Solutions</small></h1>
+        <hr style="height:4px" class="text-primary">
+        <h3>Sizes</h3>
+        <hr>
+        <div class="mb-3">
+            <div class="cbx-krajee">
+                <label class="cbx-label" for="check-1a">xs1</label>
+                <input id="check-1a" value="1" type="text" data-toggle="checkbox-x" data-size="xs">
+            </div>
+            &nbsp;
+            <div class="cbx-krajee">
+                <label class="cbx-label" for="check-2a">xs2</label>
+                <input id="check-2a" value="0" data-toggle="checkbox-x" data-size="xs">
+            </div>
+            &nbsp;
+            <div class="cbx-krajee">
+                <label class="cbx-label" for="check-3a">xs3</label>
+                <input id="check-3a" value="" data-toggle="checkbox-x" data-size="xs">
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <div class="cbx-krajee">
+                <label class="cbx-label" for="check-1b">sm1</label>
+                <input id="check-1b" value="1" data-toggle="checkbox-x" data-size="sm">
+            </div>
+            &nbsp;
+            <div class="cbx-krajee">
+                <label class="cbx-label" for="check-2b">sm2</label>
+                <input id="check-2b" value="0" data-toggle="checkbox-x" data-size="sm">
+            </div>
+            &nbsp;
+            <div class="cbx-krajee">
+                <label class="cbx-label" for="check-3b">sm3</label>
+                <input id="check-3b" value="" data-toggle="checkbox-x" data-size="sm">
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <div class="cbx-krajee">
+                <label class="cbx-label" for="check-1c">md1</label>
+                <input id="check-1c" value="1" data-toggle="checkbox-x" data-size="md">
+            </div>
+            &nbsp;
+            <div class="cbx-krajee">
+                <label class="cbx-label" for="check-2c">md2</label>
+                <input id="check-2c" value="0" data-toggle="checkbox-x" data-size="md">
+            </div>
+            &nbsp;
+            <div class="cbx-krajee">
+                <label class="cbx-label" for="check-3c">md3</label>
+                <input id="check-3c" value="" data-toggle="checkbox-x" data-size="md">
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <div class="cbx-krajee">
+                <label class="cbx-label" for="check-1d">lg1</label>
+                <input id="check-1d" value="1" data-toggle="checkbox-x" data-size="lg">
+            </div>
+            &nbsp;
+            <div class="cbx-krajee">
+                <label class="cbx-label" for="check-2d">lg2</label>
+                <input id="check-2d" value="0" data-toggle="checkbox-x" data-size="lg">
+            </div>
+            &nbsp;
+            <div class="cbx-krajee">
+                <label class="cbx-label" for="check-3d">lg3</label>
+                <input id="check-3d" value="" data-toggle="checkbox-x" data-size="lg">
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <div class="cbx-krajee">
+                <label class="cbx-label" for="check-1e">xl1</label>
+                <input id="check-1e" value="1" data-toggle="checkbox-x" data-size="xl">
+            </div>
+            &nbsp;
+            <div class="cbx-krajee">
+                <label class="cbx-label" for="check-2e">xl2</label>
+                <input id="check-2e" value="0" data-toggle="checkbox-x" data-size="xl">
+            </div>
+            &nbsp;
+            <div class="cbx-krajee">
+                <label class="cbx-label" for="check-3e">xl3</label>
+                <input id="check-3e" value="" data-toggle="checkbox-x" data-size="xl">
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <div class="cbx-krajee">
+                <label class="cbx-label" for="check-1f">xl(d)1</label>
+                <input id="check-1f" value="1" disabled data-toggle="checkbox-x" data-size="xl">
+            </div>
+            &nbsp;
+            <div class="cbx-krajee">
+                <label class="cbx-label" for="check-2f">xl(d)2</label>
+                <input id="check-2f" value="0" disabled data-toggle="checkbox-x" data-size="xl">
+            </div>
+            &nbsp;
+            <div class="cbx-krajee">
+                <label class="cbx-label" for="check-3f">xl(d)3</label>
+                <input id="check-3f" value="" disabled data-toggle="checkbox-x" data-size="xl">
+            </div>
+        </div>
+
+        <h3 class="mt-5">Label Positions</h3>
+        <hr>
+        <div class="mb-3">
+            <table class="table table-bordered text-center kv-align-middle">
+                <tr>
+                    <td style="vertical-align: middle">
+                        <div class="cbx-krajee">
+                            <label class="cbx-label" for="check-1g">Left Label</label>
+                            <input id="check-1g" value="1" data-toggle="checkbox-x" data-size="sm">
+                        </div>
+                    </td>
+                    <td style="vertical-align: middle">
+                        <div class="cbx-krajee">
+                            <input id="check-2g" value="0" data-toggle="checkbox-x" data-size="md">
+                            <label class="cbx-label" for="check-2g">Right Label</label>
+                        </div>
+                    </td>
+                    <td style="vertical-align: middle">
+                        <div class="cbx-krajee">
+                            <label class="cbx-label" for="check-3g">Enclosing Label
+                                <input id="check-3g" value="" data-toggle="checkbox-x" data-size="xl"
+                                       data-enclosed-label="true">
+                            </label>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <h3 class="mt-5">Contextual Colors</h3>
+        <hr>
+        <div class="mb-3 has-success">
+            <div class="cbx-krajee">
+                <label class="cbx-label" for="check-1h">Success</label>
+                <input id="check-1h" type="checkbox" value="1" data-toggle="checkbox-x" data-size="xl">
+            </div>
+        </div>
+
+        <div class="mb-3 has-warning">
+            <div class="cbx-krajee">
+                <label class="cbx-label" for="check-2h">Warning</label>
+                <input id="check-2h" value="1" data-toggle="checkbox-x" data-size="xl">
+            </div>
+        </div>
+
+        <div class="mb-3 has-error">
+            <div class="cbx-krajee">
+                <label class="cbx-label" for="check-3h">Danger</label>
+                <input id="check-3h" value="1" data-toggle="checkbox-x" data-size="xl">
+            </div>
+        </div>
+
+        <h3 class="mt-5">Three Values</h3>
+        <hr>
+        <div class="mb-3">
+            <div class="cbx-krajee">
+                <label class="cbx-label" for="check-1i">Check 1</label>
+                &nbsp;
+                <input id="check-1i" value="1" data-toggle="checkbox-x" data-size="xl" data-inline="false">
+            </div>
+            &nbsp;
+            <div class="cbx-krajee">
+                <label class="cbx-label" for="check-2i">Check 2</label>
+                &nbsp;
+                <input id="check-2i" value="0" data-toggle="checkbox-x" data-size="xl" data-inline="false">
+            </div>
+            &nbsp;
+            <div class="cbx-krajee">
+                <label class="cbx-label" for="check-3i">Check 3</label>
+                &nbsp;
+                <input id="check-3i" value="" data-toggle="checkbox-x" data-size="xl" data-inline="false">
+            </div>
+        </div>
+
+        <h3 class="mt-5">Use Alternate Crossed Icon</h3>
+        <hr>
+
+        <div class="mb-3">
+            <div class="cbx-krajee">
+                <label class="cbx-label" for="check-0e1">xs</label>
+                <input type="checkbox" checked id="check-0e1" value="1" data-toggle="checkbox-x" data-size="xs" data-use-cross-icon="true">
+            </div>
+            &nbsp;
+            <div class="cbx-krajee">
+                <label class="cbx-label" for="check-1e1">sm</label>
+                <input type="checkbox" checked id="check-1e1" value="1" data-toggle="checkbox-x" data-size="sm" data-use-cross-icon="true">
+            </div>
+            &nbsp;
+            <div class="cbx-krajee">
+                <label class="cbx-label" for="check-2e1">md</label>
+                <input type="checkbox" checked id="check-2e1" value="1" data-toggle="checkbox-x" data-size="md" data-use-cross-icon="true">
+            </div>
+            &nbsp;
+            <div class="cbx-krajee">
+                <label class="cbx-label" for="check-3e1">lg</label>
+                <input type="checkbox" checked id="check-3e1" value="1" data-toggle="checkbox-x" data-size="lg" data-use-cross-icon="true">
+            </div>
+            &nbsp;
+            <div class="cbx-krajee">
+                <label class="cbx-label" for="check-4e1">xl</label>
+                <input type="checkbox" checked id="check-4e1" value="1" data-toggle="checkbox-x" data-size="xl" data-use-cross-icon="true">
+            </div>
+        </div>
+
+        <h3 class="mt-5">Use Custom Icon Markup</h3>
+        <hr>
+        <div class="mb-3">
+            <div class="cbx-krajee">
+                <label class="cbx-label" for="input-20a">Status
+                    <input type="checkbox" id="input-20a" value="1" checked>
+                </label>
+            </div>
+        </div>
+
+        <h3 class="mt-5">Custom Icon CSS</h3>
+        <hr>
+        <div class="mb-3">
+            <div class="cbx-krajee">
+                <label class="cbx-label" for="input-21a">Status</label>
+                <input type="checkbox" id="input-21a" value="1" checked>
+            </div>
+        </div>
+
+        <script>$(document).ready(function () {
+            kvChg(['check-1a', 'check-2a', 'check-3a', 'check-1b', 'check-2b', 'check-3b',
+                'check-1c', 'check-2c', 'check-3c', 'check-1d', 'check-2d', 'check-3d',
+                'check-1e', 'check-2e', 'check-3e', 'check-1f', 'check-2f', 'check-3f',
+                'check-1g', 'check-2g', 'check-3g', 'check-1h', 'check-2h', 'check-3h',
+                'check-1i', 'check-2i', 'check-3i',
+                'check0e1','check1e1', 'check2e1', 'check3e1', 'check4e1']);
+            $("#input-20a").checkboxX({
+                enclosedLabel: true,
+                iconChecked: '<b style="display:inline-block;font-size:18px;margin-top:-15px;color:green">&check;</b>',
+                iconUnchecked: '<b style="display:inline-block;font-size:24px;margin-top:-7px;color:red">&times;</b>'
+            });
+            $("#input-21a").checkboxX({
+                iconUnchecked: '<span style="display:inline-block;font-size:24px;margin-top:-15px">&ndash;</span>',
+                iconCheckedCss: 'text-success',
+                iconUncheckedCss: 'text-danger',
+                iconNullCss: 'text-info'
+            });
+        });</script>
+
+        <h3 class="mt-5">Enclosed Label (Native 2 state)</h3>
+        <hr>
+        <div class="row">
+            <div class="col-sm-3">
+                <div class="cbx-krajee">
+                    <label class="cbx-label" for="test-kv-94">
+                        <input id="test-kv-94" type="checkbox" checked value="1"/>Click me
+                    </label>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="alert alert-warning">Value: <code id="kv-94"></code></div>
+            </div>
+        </div>
+        <script>kvInit('kv-94', {useNative: true, threeState: false, enclosedLabel: true});</script>
+
+        <h3 class="mt-5">Non Enclosed Label (Native 2 state)</h3>
+        <hr>
+        <div class="row">
+            <div class="col-sm-3">
+                <div class="cbx-krajee">
+                    <label class="cbx-label" for="test-kv-95"> Click me </label>
+                    <input id="test-kv-95" type="checkbox" checked value="1"/>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="alert alert-warning">Value: <code id="kv-95"></code></div>
+            </div>
+        </div>
+        <script>kvInit('kv-95', {useNative: true, threeState: false});</script>
+
+        <h3 class="mt-5">Enclosed Label (Native 3 state)</h3>
+        <hr>
+        <div class="row">
+            <div class="col-sm-3">
+                <div class="cbx-krajee">
+                    <label class="cbx-label"><input id="test-kv-96" type="checkbox" checked value="1"/> Click me</label>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="alert alert-warning">Value: <code id="kv-96"></code></div>
+            </div>
+        </div>
+        <script>kvInit('kv-96', {useNative: true, enclosedLabel: true});</script>
+
+        <h3 class="mt-5">Non Enclosed Label (Native 3 state)</h3>
+        <hr>
+        <div class="row">
+            <div class="col-sm-3">
+                <div class="cbx-krajee">
+                    <label class="cbx-label" for="test-kv-97"> Click me </label>
+                    <input id="test-kv-97" type="checkbox" checked value="1"/>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="alert alert-warning">Value: <code id="kv-97"></code></div>
+            </div>
+        </div>
+        <script>kvInit('kv-97', {useNative: true});</script>
+
+        <h3 class="mt-5">Enclosed Label (2 state)</h3>
+        <hr>
+        <div class="row">
+            <div class="col-sm-3">
+                <div class="cbx-krajee">
+                    <label class="cbx-label" for="test-kv-99">Wish Kartik?
+                        <input id="test-kv-99" type="checkbox"/>
+                    </label>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="alert alert-warning">Value: <code id="kv-99"></code></div>
+            </div>
+        </div>
+        <script>kvInit('kv-99', {threeState: false, enclosedLabel: true});</script>
+
+        <h3 class="mt-5">Non Enclosed Label (2 state)</h3>
+        <hr>
+        <div class="row">
+            <div class="col-sm-3">
+                <div class="cbx-krajee">
+                    <label class="cbx-label" for="test-kv-100">Wish Kartik? </label>
+                    <input id="test-kv-100" type="checkbox" checked value="1"/>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="alert alert-warning">Value: <code id="kv-100"></code></div>
+            </div>
+        </div>
+        <script>kvInit('kv-100', {threeState: false});</script>
+
+        <h3 class="mt-5">Special Enclosed Label (2 state)</h3>
+        <hr>
+        <div class="row">
+            <div class="col-sm-3">
+                <div class="cbx-krajee">
+                    <label class="cbx-label" for="test-kv-99a">Wish Kartik?
+                        <input id="test-kv-99a" type="checkbox"/>
+                    </label>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="alert alert-warning">Value: <code id="kv-99a"></code></div>
+            </div>
+        </div>
+        <script>kvInit('kv-99a', {threeState: false, enclosedLabel: true, allowThreeValOnInit: true});</script>
+
+        <h3 class="mt-5">Enclosed Label (3 state)</h3>
+        <hr>
+        <div class="row">
+            <div class="col-sm-3">
+                <div class="cbx-krajee">
+                    <label class="cbx-label" for="test-kv-101">Wish Kartik?
+                        <input id="test-kv-101" type="checkbox"/>
+                    </label>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="alert alert-warning">Value: <code id="kv-101"></code></div>
+            </div>
+        </div>
+        <script>kvInit('kv-101', {enclosedLabel: true});</script>
+
+        <h3 class="mt-5">Non Enclosed Label (3 state)</h3>
+        <hr>
+        <div class="row">
+            <div class="col-sm-3">
+                <div class="cbx-krajee">
+                    <label class="cbx-label" for="test-kv-102">Wish Kartik?</label>
+                    <input id="test-kv-102" type="checkbox" checked value="1"/>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="alert alert-warning">Value: <code id="kv-102"></code></div>
+            </div>
+        </div>
+        <script>kvInit('kv-102', {});</script>
+
+        <h3 class="mt-5">Text Input Enclosed Label (2 state)</h3>
+        <hr>
+        <div class="row">
+            <div class="col-sm-3">
+                <div class="cbx-krajee">
+                    <label class="cbx-label" for="test-kv-199">Wish Kartik? <input id="test-kv-199"
+                                                                                   type="text"/></label>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="alert alert-warning">Value: <code id="kv-199"></code></div>
+            </div>
+        </div>
+        <script>kvInit('kv-199', {threeState: false, enclosedLabel: true});</script>
+
+        <h3 class="mt-5">Text Input Non Enclosed Label (2 state)</h3>
+        <hr>
+        <div class="row">
+            <div class="col-sm-3">
+                <div class="cbx-krajee">
+                    <label class="cbx-label" for="test-kv-200">Wish Kartik? </label><input id="test-kv-200"
+                                                                                           type="text"/>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="alert alert-warning">Value: <code id="kv-200"></code></div>
+            </div>
+        </div>
+        <script>kvInit('kv-200', {threeState: false});</script>
+
+        <h3 class="mt-5">Text Input Enclosed Label (3 state)</h3>
+        <hr>
+        <div class="row">
+            <div class="col-sm-3">
+                <div class="cbx-krajee">
+                    <label class="cbx-label" for="test-kv-201">Wish Kartik? <input id="test-kv-201"
+                                                                                   type="text"/></label>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="alert alert-warning">Value: <code id="kv-201"></code></div>
+            </div>
+        </div>
+        <script>kvInit('kv-201', {enclosedLabel: true});</script>
+
+        <h3 class="mt-5">Text Input Non Enclosed Label (3 state)</h3>
+        <hr>
+        <div class="row">
+            <div class="col-sm-3">
+                <div class="cbx-krajee">
+                    <label class="cbx-label" for="test-kv-202">Wish Kartik?</label>
+                    <input id="test-kv-202" type="text"/>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="alert alert-warning">Value: <code id="kv-202"></code></div>
+            </div>
+        </div>
+        <script>kvInit('kv-202', {});</script>
+
+        <h3 class="mt-5">Select Input Enclosed Label (2 state)</h3>
+        <hr>
+        <div class="row">
+            <div class="col-sm-3">
+                <div class="cbx-krajee">
+                    <label class="cbx-label" for="test-kv-203">Wish Kartik?
+                        <select id="test-kv-203">
+                            <option value="0">No</option>
+                            <option value="1">Yes</option>
+                            <option value="">None</option>
+                        </select>
+                    </label>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="alert alert-warning">Value: <code id="kv-203"></code></div>
+            </div>
+        </div>
+        <script>kvInit('kv-203', {enclosedLabel: true, threeState: false});</script>
+
+        <h3 class="mt-5">Select Input Non-Enclosed Label (2 state)</h3>
+        <hr>
+        <div class="row">
+            <div class="col-sm-3">
+                <div class="cbx-krajee">
+                    <select id="test-kv-204">
+                        <option value="0">No</option>
+                        <option value="1">Yes</option>
+                        <option value="">None</option>
+                    </select>
+                    <label class="cbx-label" for="test-kv-204">Wish Kartik? </label>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="alert alert-warning">Value: <code id="kv-204"></code></div>
+            </div>
+        </div>
+        <script>kvInit('kv-204', {enclosedLabel: false, threeState: false});</script>
+
+        <h3 class="mt-5">Select Input Enclosed Label (3 state)</h3>
+        <hr>
+        <div class="row">
+            <div class="col-sm-3">
+                <div class="cbx-krajee">
+                    <label class="cbx-label" for="test-kv-205">Wish Kartik?
+                        <select id="test-kv-205">
+                            <option value="0">No</option>
+                            <option value="1">Yes</option>
+                            <option value="">None</option>
+                        </select>
+                    </label>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="alert alert-warning">Value: <code id="kv-205"></code></div>
+            </div>
+        </div>
+        <script>kvInit('kv-205', {enclosedLabel: true});</script>
+
+        <h3 class="mt-5">Select Input Non-Enclosed Label (3 state)</h3>
+        <hr>
+        <div class="row">
+            <div class="col-sm-3">
+                <div class="cbx-krajee">
+                    <select id="test-kv-206">
+                        <option value="0">No</option>
+                        <option value="1">Yes</option>
+                        <option value="">None</option>
+                    </select>
+                    <label class="cbx-label" for="test-kv-206">Wish Kartik? </label>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="alert alert-warning">Value: <code id="kv-206"></code></div>
+            </div>
+        </div>
+        <script>kvInit('kv-206', {enclosedLabel: false});</script>
+
+        <h3 class="mt-5">Plugin Methods</h3>
+        <hr>
+        <div class="mb-3">
+            <div class="cbx-krajee">
+                <label class="cbx-label" for="check-301"><input id="check-301" type="checkbox" value="1"> Check me out</label>
+            </div>
+            <hr>
+            <button type="button" class="btn btn-danger btn-destroy">Destroy</button>
+            <button type="button" class="btn btn-success btn-recreate">Recreate</button>
+        </div>
+
+        <h2 class="mt-5 text-primary">THEMING (Krajee Flat Blue Theme)</h2>
+        <hr>
+        <h3 class="mt-5">Sizes</h3>
+        <hr>
+        <div class="mb-3">
+            <div class="cbx-krajee">
+                <label class="cbx-label" for="check-theme-1a">xs1</label>
+                <input id="check-theme-1a" value="1" type="text" data-toggle="checkbox-x" data-theme="krajee-flatblue"
+                                                           data-size="xs">
+            </div>
+            &nbsp;
+            <div class="cbx-krajee">
+                <label class="cbx-label" for="check-theme-2a">xs2</label>
+                <input id="check-theme-2a" value="0" data-toggle="checkbox-x" data-theme="krajee-flatblue"
+                       data-size="xs">
+            </div>
+            &nbsp;
+            <div class="cbx-krajee">
+                <label class="cbx-label" for="check-theme-3a">xs3</label>
+                <input id="check-theme-3a" value="" data-toggle="checkbox-x" data-theme="krajee-flatblue"
+                       data-size="xs">
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <div class="cbx-krajee">
+                <label class="cbx-label" for="check-theme-1b">sm1</label>
+                <input id="check-theme-1b" value="1" data-toggle="checkbox-x" data-theme="krajee-flatblue"
+                       data-size="sm">
+            </div>
+            &nbsp;
+            <div class="cbx-krajee">
+                <label class="cbx-label" for="check-theme-2b">sm2</label>
+                <input id="check-theme-2b" value="0" data-toggle="checkbox-x" data-theme="krajee-flatblue"
+                       data-size="sm">
+            </div>
+            &nbsp;
+            <div class="cbx-krajee">
+                <label class="cbx-label" for="check-theme-3b">sm3</label>
+                <input id="check-theme-3b" value="" data-toggle="checkbox-x" data-theme="krajee-flatblue"
+                       data-size="sm">
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <div class="cbx-krajee">
+                <label class="cbx-label" for="check-theme-1c">md1</label>
+                <input id="check-theme-1c" value="1" data-toggle="checkbox-x" data-theme="krajee-flatblue"
+                       data-size="md">
+            </div>
+            &nbsp;
+            <div class="cbx-krajee">
+                <label class="cbx-label" for="check-theme-2c">md2</label>
+                <input id="check-theme-2c" value="0" data-toggle="checkbox-x" data-theme="krajee-flatblue"
+                       data-size="md">
+            </div>
+            &nbsp;
+            <div class="cbx-krajee">
+                <label class="cbx-label" for="check-theme-3c">md3</label>
+                <input id="check-theme-3c" value="" data-toggle="checkbox-x" data-theme="krajee-flatblue"
+                       data-size="md">
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <div class="cbx-krajee">
+                <label class="cbx-label" for="check-theme-1d">lg1</label>
+                <input id="check-theme-1d" value="1" data-toggle="checkbox-x" data-theme="krajee-flatblue"
+                       data-size="lg">
+            </div>
+            &nbsp;
+            <div class="cbx-krajee">
+                <label class="cbx-label" for="check-theme-2d">lg2</label>
+                <input id="check-theme-2d" value="0" data-toggle="checkbox-x" data-theme="krajee-flatblue"
+                       data-size="lg">
+            </div>
+            &nbsp;
+            <div class="cbx-krajee">
+                <label class="cbx-label" for="check-theme-3d">lg3</label>
+                <input id="check-theme-3d" value="" data-toggle="checkbox-x" data-theme="krajee-flatblue"
+                       data-size="lg">
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <div class="cbx-krajee">
+                <label class="cbx-label" for="check-theme-1e">xl1</label>
+                <input id="check-theme-1e" value="1" data-toggle="checkbox-x" data-theme="krajee-flatblue"
+                       data-size="xl">
+            </div>
+            &nbsp;
+            <div class="cbx-krajee">
+                <label class="cbx-label" for="check-theme-2e">xl2</label>
+                <input id="check-theme-2e" value="0" data-toggle="checkbox-x" data-theme="krajee-flatblue"
+                       data-size="xl">
+            </div>
+            &nbsp;
+            <div class="cbx-krajee">
+                <label class="cbx-label" for="check-theme-3e">xl3</label>
+                <input id="check-theme-3e" value="" data-toggle="checkbox-x" data-theme="krajee-flatblue"
+                       data-size="xl">
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <div class="cbx-krajee">
+                <label class="cbx-label" for="check-theme-1f">xl(d)1</label>
+                <input id="check-theme-1f" value="1" disabled data-toggle="checkbox-x" data-theme="krajee-flatblue"
+                       data-size="xl">
+            </div>
+            &nbsp;
+            <div class="cbx-krajee">
+                <label class="cbx-label" for="check-theme-2f">xl(d)2</label>
+                <input id="check-theme-2f" value="0" disabled data-toggle="checkbox-x" data-theme="krajee-flatblue"
+                       data-size="xl">
+            </div>
+            &nbsp;
+            <div class="cbx-krajee">
+                <label class="cbx-label" for="check-theme-3f">xl(d)3</label>
+                <input id="check-theme-3f" value="" disabled data-toggle="checkbox-x" data-theme="krajee-flatblue"
+                       data-size="xl">
+            </div>
+        </div>
+
+        <h3 class="mt-5">Label Positions</h3>
+        <hr>
+        <div class="mb-3">
+            <div class="cbx-krajee">
+                <label class="cbx-label" for="check-theme-1g">Left Label</label>
+                <input id="check-theme-1g" value="1" data-toggle="checkbox-x" data-theme="krajee-flatblue"
+                       data-size="sm">
+            </div>
+
+            <span style="border-left: 1px solid #ddd; margin: 0 20px;"></span>
+
+            <div class="cbx-krajee">
+                <input id="check-theme-2g" value="0" data-toggle="checkbox-x" data-theme="krajee-flatblue"
+                       data-size="md">
+                <label class="cbx-label" for="check-theme-2g">Right Label</label>
+            </div>
+
+            <span style="border-left: 1px solid #ddd; margin: 0 20px;"></span>
+
+            <div class="cbx-krajee">
+                <label class="cbx-label">Enclosing Label
+                    <input id="check-theme-3g" value="" data-toggle="checkbox-x" data-theme="krajee-flatblue"
+                           data-size="xl"
+                           data-enclosed-label="true">
+                </label>
+            </div>
+        </div>
+
+        <h3 class="mt-5">Contextual Colors</h3>
+        <hr>
+        <div class="mb-3 has-success">
+            <div class="cbx-krajee">
+                <label class="cbx-label" for="check-theme-1h">Success</label>
+                <input id="check-theme-1h" type="checkbox" value="1" data-toggle="checkbox-x"
+                       data-theme="krajee-flatblue"
+                       data-size="xl">
+            </div>
+        </div>
+
+        <div class="mb-3 has-warning">
+            <div class="cbx-krajee">
+                <label class="cbx-label" for="check-theme-2h">Warning</label>
+                <input id="check-theme-2h" value="1" data-toggle="checkbox-x" data-theme="krajee-flatblue"
+                       data-size="xl">
+            </div>
+        </div>
+
+        <div class="mb-3 has-error">
+            <div class="cbx-krajee">
+                <label class="cbx-label" for="check-theme-3h">Danger</label>
+                <input id="check-theme-3h" value="1" data-toggle="checkbox-x" data-theme="krajee-flatblue"
+                       data-size="xl">
+            </div>
+        </div>
+        <script>
+            $(document).ready(function () {
+                var $el = $("#check-301"), kvInitCbx = function () {
+                    $el.checkboxX({
+                        enclosedLabel: true
+                    });
+                };
+                kvInitCbx();
+                $('.btn-destroy').on('click', function () {
+                    if ($el.data('checkboxX')) {
+                        $el.checkboxX('destroy');
+                    }
+                });
+                $('.btn-recreate').on('click', function () {
+                    if (!$el.data('checkboxX')) {
+                        kvInitCbx();
+                    }
+                });
+            });
+        </script>
+    </div>
+</div>
+</body>
+</html>

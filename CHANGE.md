@@ -1,6 +1,18 @@
 Change Log: `bootstrap-checkbox-x`
 ==================================
 
+## Version 1.5.7
+
+**Date**: 19-Sep-2021
+
+- (enh #59): Allow custom icon CSS for checked, unchecked and null states.
+- (enh #58): New boolean property `useCrossIcon` for checked indicator.
+- (enh #57): Revamp bootstrap checkbox-x markup for better styling & alignment across Bootstrap versions.
+    - New CSS class `.cbx-krajee` for the container markup to enclose all checkboxes with their labels
+    - Automated label and input vertical alignment for checkboxes
+- (enh #56): Enhancements to support all bootstrap versions (5.x, 4.x. and 3.x) enhancement
+- (enh #55): Use enhanced SVG icons
+
 ## Version 1.5.6
 
 **Date**: 19-May-2021
