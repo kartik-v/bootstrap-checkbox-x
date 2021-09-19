@@ -192,7 +192,3 @@ label + .cbx-block, .cbx-block + label, .cbx-block + .cbx-block, label .cbx-bloc
 .cbx-krajee input[type=checkbox] {
     margin: 3px 3px 0;
 }
-
-.cbx-krajee .cbx-label input[type=checkbox] {
-    margin: 0;
-}
